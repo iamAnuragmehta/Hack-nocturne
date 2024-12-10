@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, forwardRef } from "react";
-import "../index.css"
+import "../../index.css"
 const ParticleCanvas = forwardRef((props, ref) => {
   const canvasRef = useRef(null);
 

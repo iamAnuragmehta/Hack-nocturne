@@ -6,6 +6,7 @@ import GlitchText from "./Glitch";
 import "../CSS files/Body.css";
 import Navbar from "./Navbar";
 import Timer from "./Timer";
+import Typewriter from "typewriter-effect";
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -37,7 +38,7 @@ const Body = () => {
     gsap.fromTo(
       ".text-animate",
       {
-        x:-100, // Start position
+        x: -100, // Start position
         opacity: 1,
       },
       {
@@ -100,28 +101,35 @@ const Body = () => {
   return (
     <>
       <Navbar className="navbar" />
-      <div className="flex items-center justify-between mt-[7vh] h-[70vh]">
-        <div className="text-white">
-          <div className="m-[10vh] g-[1vh]">
-            <GlitchText className="text-animate" size="4rem" heading="Dive into the future" />
-            <div>
-              <GlitchText className="text-animate" size="4rem" heading="Build, Innovate, and Conquer" />
-            </div>
-            <div>
-              <GlitchText className="text-animate" size="2.5rem" heading="The metaverse at HackNocturn" />
-            </div>
+      <div className="flex items-center justify-between">
+        <div className="text-white ml-20">
+          <div className="text-4xl">
+            A 24-hour <br /> Hackathon
           </div>
-          <div className="bodybutton m-[9vh]">
-            <button className="registerbutton m-[2.2vh] rounded-xl p-1.5">
-              <GlitchText size="2.2rem" heading="Register Now" />
-            </button>
-            <button className="learnmore m-[2.2vh] rounded-xl p-1.5">
-              <GlitchText size="2.2rem" heading="Learn More" />
-            </button>
+
+          <div className="text-xl my-4">
+            <Typewriter
+              options={{ loop: true }}
+              onInit={(typewriter) => {
+                typewriter
+                  .pauseFor(3000)
+                  .typeString("Build, ")
+                  .pauseFor(2000)
+                  .typeString("Innovate, ")
+                  .pauseFor(2000)
+                  .typeString("and Conquer!")
+                  .pauseFor(4000)
+                  .start();
+              }}
+            />
           </div>
+
+          <button className="bg-blue-500 p-2 rounded-lg mt-4">
+            Register Now
+          </button>
         </div>
-        <div className="image-section image-animate">
-          <img src={bg} className="h-[38vw]" alt="" />
+        <div className="">
+          <img src={bg} className="h-[38vw] max-w-max" alt="" />
         </div>
       </div>
       <Timer className="timer-animate" targetDate="2025-02-22T00:00:00" />

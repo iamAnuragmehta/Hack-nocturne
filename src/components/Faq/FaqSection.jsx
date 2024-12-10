@@ -43,7 +43,8 @@ function FaqSection() {
             trigger: ".faqquestion",
             start: "top bottom",
             end: "bottom top",
-            markers: false,
+            markers: true,
+            toggleActions: "play none none reverse",
           },
         })
         .from(".faqquestion", { duration: 1, y: 40, opacity: 0 });
@@ -53,23 +54,20 @@ function FaqSection() {
   }, []);
 
   return (
-    <section id="faq" className="rubik px-2 my-20">
+    <section id="faq" className="rubik px-2 my-20 mx-8 md:mx-20">
       <div className="md:p-12">
         <div className="text-center">
-          <h2
-            data-aos="fade-up"
-            className="mb-4 text-3xl md:text-6xl font-bold text-purple-500"
-          >
+          <h2 className="mb-4 text-3xl md:text-6xl font-bold text-purple-500">
             Any Questions? <br />
             Look Here
           </h2>
-          <p data-aos="fade-up" className="text-purple-300 hidden sm:block">
+          <p className="text-purple-300 hidden sm:block">
             Find answers to the most common questions about our event.
           </p>
         </div>
       </div>
 
-      <div className="w-full grid justify-around grid-cols-1 gap-4 md:grid-cols-2 text-white">
+      <div className="w-full grid justify-around grid-cols-1 gap-6 mt-12 md:grid-cols-2 text-white">
         <div className="space-y-6">
           {faqs.slice(0, Math.ceil(faqs.length / 2)).map((faq, index) => (
             <div className="faqquestion" key={index}>

@@ -14,15 +14,8 @@
 }
 
 .timeline-content {
-  padding: 20px;
-  border-radius: 5px;
-  padding: 1.75rem;
   transition: 0.4s ease;
   overflow-wrap: break-word !important;
-  margin: 1rem;
-  margin-bottom: 20px;
-  border-radius: 6px;
-  background-color: rgba(72, 69, 69, 0.05);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(0px);
   border: 2px solid #3a3e43;
@@ -45,10 +38,6 @@
   }
   /* background-color: #663dff; */
 
-
-  .main-middle {
-    opacity: 0;
-  }
   .timeline-circle {
     position: absolute;
     top: 0;

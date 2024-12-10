@@ -1,38 +1,27 @@
-import { useState } from "react";
 import "./App.css";
-import ParticleCanvas from "./components/ParticleCanvas";
-import Navbar from "./components/Navbar";
+import ParticleCanvas from "./components/background/ParticleCanvas";
 import Body from "./components/Body";
-import Timer from "./components/Timer";
 import Preloader from "./components/Preloader";
 import About from "./components/About";
 import { PrizeSection } from "./components/Prizes/PrizeSection";
 import { SponsorSection } from "./components/Sponsor/SponsorSection";
 import { FaqSection } from "./components/Faq/FaqSection";
-import { TimelineSection } from "./components/TimelineSection";
+import ResponsiveTimeline from "./components/Timeline/ResponsiveTimeline";
+import { Background } from "./components/background/background2";
 
 function App() {
   return (
     <>
-      <div>
-        <div>
-          <ParticleCanvas />
-        </div>
-        <div>
-          <Preloader></Preloader>
-        </div>
-        <div className="z-[-20]">
-          <Body />
-        </div>
-
+      {/* <Background /> */}
+      <ParticleCanvas />
+      <div className="relative z-10">
+        <Preloader />
+        <Body />
         <About />
-
         <PrizeSection />
         <SponsorSection />
         <FaqSection />
-
-        <TimelineSection />
-
+        <ResponsiveTimeline />
       </div>
     </>
   );

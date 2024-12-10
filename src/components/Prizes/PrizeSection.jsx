@@ -1,19 +1,23 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function PrizeSection() {
+  const prizeSectionRef = useRef(null);
+
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
       gsap
         .timeline({
           scrollTrigger: {
-            trigger: "#first",
-            start: "top bottom",
+            trigger: prizeSectionRef.current,
+            start: "top bottom", 
             end: "bottom top",
-            markers: false,
+            scrub: false,
+            markers: true,
+            toggleActions: "play none none reverse",
           },
         })
         .from("#first", { duration: 0.3, opacity: 0 })
@@ -33,7 +37,10 @@ function PrizeSection() {
       </h2>
 
       {/* 🥈🏆🥉 */}
-      <div className="flex flex-col md:flex-row px-4 md:px-8 justify-center gap-8 mb-8">
+      <div
+        ref={prizeSectionRef}
+        className="flex flex-col mx-12 md:mx-auto md:flex-row px-4 md:px-8 justify-center gap-8 mb-8"
+      >
         {/* Silver */}
         <div
           id="second"
@@ -89,16 +96,17 @@ function PrizeSection() {
         className="w-full lg:max-w-lg md:max-w-2xl mx-auto px-4"
       >
         <div className="clear-glass rounded-xl md:rounded-3xl p-8 text-center border-2 border-purple-500">
-          <div className="text-5xl mb-6 mx-auto w-20 sm:h-20 flex items-center justify-center rounded-full">
+          <div className="md:text-5xl mb-6 mx-auto w-20 sm:h-20 flex items-center justify-center rounded-full">
             🎉
           </div>
-          <h3 className="text-2xl font-bold mb-3 text-purple-500">
+          <h3 className="text-3xl md:text-2xl font-bold mb-3 text-purple-500">
             Don&apos;t Worry!
           </h3>
-          <p className="text-sm mb-4 text-gray-300">
-            Even if you didn&apos;t win, your experience is invaluable.
+          <p className="text-md mb-4 text-gray-300">
+            Even if you didn&apos;t win,
+            <br /> your experience is invaluable.
           </p>
-          <p className="text-sm sm:font-semibold mb-6 text-gray-300">
+          <p className="text-sm md:text-sm sm:font-semibold mb-6 text-gray-300">
             Every participant will receive a Certificate of Participation as a
             token of achievement!
           </p>
@@ -124,24 +132,36 @@ const PrizeCard = ({
   border,
 }) => {
   return (
-    <div className={`clear-glass rounded-xl p-8 text-center ${border}`}>
-      <div
-        className={`text-5xl mb-6 mx-auto w-20 h-20 flex items-center justify-center rounded-full ${iconbackground} text-primary`}
-      >
-        {icon}
-      </div>
-      <h3 className="text-lg sm:text-2xl mb-3 text-white">{place}</h3>
-      <p className="text-3xl sm:text-3xl font-bold mb-6 text-white">{cash}</p>
-      <p className="text-xl sm:text-xl mb-6 text-white">
-        {credits}
-        <br /> OpenAI credits
-      </p>
-      <div className="mt-4 text-center">
-        <span
-          className={`inline-block text-sm px-4 py-2 rounded-full font-semibold ${theme}`}
+    <div
+      className={`clear-glass flex flex-col rounded-xl p-8 text-center ${border}`}
+    >
+      <div className="flex flex-row w-full">
+        <div
+          className={`flex px-auto text-5xl w-20 h-20 items-center justify-center rounded-full ${iconbackground} text-primary`}
         >
-          {medal}
-        </span>
+          {icon}
+        </div>
+        <div className="flex w-1/2 flex-col ml-6">
+          <h3 className="text-lg h-auto sm:text-2xl mb-3 text-white">
+            {place}
+          </h3>
+          <p className="text-lg sm:text-3xl font-bold mb-6 text-white">
+            {cash}
+          </p>
+        </div>
+      </div>
+      <div className="flex flex-col">
+        <p className="text-lg sm:text-xl md:mb-6 text-white">
+          {credits}
+          <br /> OpenAI credits
+        </p>
+        <div className="mt-4 text-center">
+          <span
+            className={`inline-block text-sm px-4 py-2 rounded-full font-semibold ${theme}`}
+          >
+            {medal}
+          </span>
+        </div>
       </div>
     </div>
   );

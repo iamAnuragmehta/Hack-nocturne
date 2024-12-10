@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -13,6 +13,7 @@ import "./SponorSection.css";
 gsap.registerPlugin(ScrollTrigger);
 
 function SponsorSection() {
+  const SponsorRef = useRef(null);
   const sponsors = [react, google, canva, discord, GSAP];
   const infiniteSponsors = [...sponsors, ...sponsors];
 
@@ -24,9 +25,11 @@ function SponsorSection() {
             trigger: "#redbar",
             start: "top bottom",
             end: "bottom top",
+            markers: true,
+            toggleActions: "play none none reverse",
           },
         })
-        .from("#redbar", { duration: 2, width: "1%" })
+        .from("#redbar", { duration: 2, width: "0" })
         .to("#redbar", { width: "12rem" });
     });
 
@@ -48,7 +51,7 @@ function SponsorSection() {
         </div>
 
         {/* create a infinte carousel for sponsors */}
-        <div className="relative w-full overflow-hidden">
+        <div className="relative w-full md:overflow-hidden">
           <div className="animate-infinite-scroll flex items-center justify-center">
             {infiniteSponsors.map((sponsor, index) => (
               <div
@@ -65,7 +68,11 @@ function SponsorSection() {
             ))}
           </div>
         </div>
-        <div id="redbar" className="w-48 h-1 bg-red-600 mx-auto mt-8" />
+        <div
+          id="redbar"
+          ref={SponsorRef}
+          className="w-48 h-1 bg-red-600 mx-auto mt-8"
+        />
       </div>
     </section>
   );
