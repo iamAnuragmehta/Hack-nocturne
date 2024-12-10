@@ -1,0 +1,48 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  display: grid;
+  min-height: 100vh;
+}
+
+.page__text {
+  margin: auto;
+  position: relative;
+  font-size: clamp(4rem, 7vw, 8rem);
+}
+
+.text::before {
+  animation: anim 1s linear;
+  color: red;
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 0;
+  overflow: hidden;
+  content: attr(data-text);
+}
+
+@keyframes anim {
+  50%, 80% {
+    width: 100%;
+  }
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.home h1 {
+  font-size: 3rem;
+  color: #333;
+}
