@@ -1,130 +1,90 @@
-import React, { useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import bg from "../assest/comp.webp";
+import React, { useEffect, useState } from "react";
 import GlitchText from "./Glitch";
-import "../CSS files/Body.css";
+import gsap from "gsap";
+import bg from "../assest/comp.webp";
 import Navbar from "./Navbar";
 import Timer from "./Timer";
-
-// Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger);
+import "../index.css";
 
 const Body = () => {
+  const [screenSize, setScreenSize] = useState(window.innerWidth);
+
   useEffect(() => {
-    // Navbar animation: Start from y: -100 and move to y: 0
+    const handleResize = () => setScreenSize(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    // Animations
     gsap.fromTo(
       ".navbar",
-      {
-        y: -1500, // Start position from the top
-        opacity: 1,
-      },
-      {
-        y: 0, // Final position
-        opacity: 1,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".navbar",
-          start: "top top", // Trigger when the top of navbar reaches top of viewport
-          end: "top+=100 bottom", // End when navbar reaches +100px scroll
-          scrub: 0.1, // Slow down the scrub for smoother transition
-        },
-      }
+      { y: -100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.1, ease: "power2.out", delay: 0.2 }
     );
 
-    // Text animation: Start from y: 100 and move to the final position
     gsap.fromTo(
       ".text-animate",
-      {
-        x:-100, // Start position
-        opacity: 1,
-      },
-      {
-        x: 0, // Final position
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".text-animate",
-          start: "top 80%", // Start when the element reaches 80% of the viewport height
-          end: "top 30%", // Stop when the element reaches 30% of the viewport height
-          scrub: 0.7, // Moderate speed for smoother transition
-        },
-      }
+      { x: -150, opacity: 0 },
+      { x: 0, opacity: 1, duration: 1.5, ease: "power2.out", stagger: 0.3, delay: 0.5 }
     );
 
-    // Image animation: Start from x: -100 and move to final position (horizontal movement)
     gsap.fromTo(
       ".image-animate",
-      {
-        x: -100, // Start from left
-        opacity: 1,
-      },
-      {
-        x: 0, // Move to original position
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".image-animate",
-          start: "top 80%", // Trigger when image reaches 80% of the viewport height
-          end: "top 30%", // End when image reaches 30% of the viewport height
-          scrub: 1, // Smooth animation that matches scroll position
-        },
-      }
+      { x: 150, opacity: 0 },
+      { x: 0, opacity: 1, duration: 1.8, ease: "power2.out", delay: 0.8 }
     );
 
-    // Timer animation: Start from y: 100 and move to final position
-    // gsap.fromTo(
-    //   ".timer-animate",
-    //   {
-    //     y: 100, // Start position from below the viewport
-    //     opacity: 0,
-    //   },
-    //   {
-    //     y: 0, // Final position
-    //     opacity: 1,
-    //     duration: 1,
-    //     ease: "power3.out",
-    //     scrollTrigger: {
-    //       trigger: ".timer-animate",
-    //       start: "top 30%", // Trigger when timer reaches 30% of the viewport height
-    //       end: "top 20%", // Stop when it reaches 20% of the viewport height
-    //       scrub: 1,
-    //     },
-    //   }
-    // );
+    gsap.fromTo(
+      ".bodybutton button",
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.2, ease: "power2.out", stagger: 0.3, delay: 1.2 }
+    );
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const calculateHeadingSize = () => {
+    if (screenSize < 600) {
+      return "1.2rem"; // Small size for mobile
+    } else if (screenSize < 768) {
+      return "2rem"; // Medium size for tablets
+    } else {
+      return "3rem"; // Large size for desktops
+    }
+  };
+
+  const shouldHideImage = screenSize < 600; // Hide image for screens smaller than 600px
 
   return (
     <>
-      <Navbar className="navbar" />
-      <div className="flex items-center justify-between mt-[7vh] h-[70vh]">
-        <div className="text-white">
-          <div className="m-[10vh] g-[1vh]">
-            <GlitchText className="text-animate" size="4rem" heading="Dive into the future" />
-            <div>
-              <GlitchText className="text-animate" size="4rem" heading="Build, Innovate, and Conquer" />
-            </div>
-            <div>
-              <GlitchText className="text-animate" size="2.5rem" heading="The metaverse at HackNocturn" />
-            </div>
+      <Navbar />
+
+      <div className="flex flex-col md:flex-row items-center md:items-start justify-between mt-[7vh] md:mt-[7vh] pt-[60px]"> {/* Add pt-[60px] to add space below fixed navbar */}
+        {/* Left Text Section */}
+        <div className="text-white items-center md:right-[50%] md:text-left px-4 md:px-12 md:w-1/2">
+          <div className="space-y-4 text-animate">
+            <GlitchText size={calculateHeadingSize()} heading="Dive into the future" />
+            <GlitchText size={calculateHeadingSize()} heading="Build, Innovate, and Conquer" />
+            <GlitchText size={calculateHeadingSize()} heading="The metaverse at HackNocturne" />
           </div>
-          <div className="bodybutton m-[9vh]">
-            <button className="registerbutton m-[2.2vh] rounded-xl p-1.5">
-              <GlitchText size="2.2rem" heading="Register Now" />
+          {/* Button and Timer below the text */}
+          <div className="bodybutton flex flex-col items-center mt-7">
+            <button className="registerbutton rounded-xl bg-purple-500 p-2.5 w-auto">
+              <GlitchText size="1.5rem" heading="Register Now" />
             </button>
-            <button className="learnmore m-[2.2vh] rounded-xl p-1.5">
-              <GlitchText size="2.2rem" heading="Learn More" />
-            </button>
+            <Timer className="timer-animate mt-8" targetDate="2025-02-22T00:00:00" />
           </div>
         </div>
-        <div className="image-section image-animate">
-          <img src={bg} className="h-[38vw]" alt="" />
-        </div>
+
+        {/* Right Image Section */}
+        {!shouldHideImage && (
+          <div className="image-section image-animate md:w-1/2 flex justify-end px-4">
+            <img
+              src={bg}
+              className="h-[40vw] md:h-[38vw] max-w-[90%] md:max-w-[100%] rounded-lg"
+              alt="Hackathon concept"
+            />
+          </div>
+        )}
       </div>
-      <Timer className="timer-animate" targetDate="2025-02-22T00:00:00" />
     </>
   );
 };

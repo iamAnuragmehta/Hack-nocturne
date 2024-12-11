@@ -12,26 +12,34 @@ import { FaqSection } from "./components/Faq/FaqSection";
 import { TimelineSection } from "./components/TimelineSection";
 
 function App() {
+  const [isPreloaderVisible , setIsPreloaderVisible] = useState(true);
+  const handlePreloaderComplete = () =>{
+    setIsPreloaderVisible(false);
+  }
+  
   return (
+
     <>
       <div>
         <div>
           <ParticleCanvas />
         </div>
-        <div>
-          <Preloader></Preloader>
-        </div>
-        <div className="z-[-20]">
-          <Body />
-        </div>
+        {isPreloaderVisible && (
+          <Preloader onComplete = {handlePreloaderComplete} />
+        )}
+        {!isPreloaderVisible && (
+          <>
+          <div className="z-[-20]">
+            <Body />
+          </div>
+          <About />
+          <PrizeSection />
+          <SponsorSection />
+          <FaqSection />
+          <TimelineSection />
+          </>
 
-        <About />
-
-        <PrizeSection />
-        <SponsorSection />
-        <FaqSection />
-
-        <TimelineSection />
+        )}
 
       </div>
     </>

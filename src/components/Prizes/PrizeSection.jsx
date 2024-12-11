@@ -7,19 +7,57 @@ gsap.registerPlugin(ScrollTrigger);
 function PrizeSection() {
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: "#first",
-            start: "top bottom",
-            end: "bottom top",
-            markers: false,
-          },
-        })
-        .from("#first", { duration: 0.3, opacity: 0 })
-        .from("#second", { duration: 0.5, opacity: 0, x: 100 })
-        .from("#third", { duration: 0.7, opacity: 0, x: -100 })
-        .from("#participation", { duration: 1, opacity: 0, y: -100 });
+      // ScrollTrigger for #first (Gold Prize)
+      gsap.from("#first", {
+        opacity: 0,
+        y: 100,
+        duration: 0.3, // Quick animation for Gold
+        scrollTrigger: {
+          trigger: "#first",
+          start: "top 80%",
+          end: "top 60%",
+          onEnter: () => console.log("Gold prize revealed!"),
+        }
+      });
+
+      // ScrollTrigger for #second (Silver Prize)
+      gsap.from("#second", {
+        opacity: 0,
+        x: 100,
+        duration: 0.2, // Faster animation for Silver
+        scrollTrigger: {
+          trigger: "#second",
+          start: "top 90%",
+          end: "top 70%",
+          onEnter: () => console.log("Silver prize revealed!"),
+        }
+      });
+
+      // ScrollTrigger for #third (Bronze Prize)
+      gsap.from("#third", {
+        opacity: 0,
+        x: -100,
+        duration: 0.2, // Faster animation for Bronze
+        scrollTrigger: {
+          trigger: "#third",
+          start: "top 100%",
+          end: "bottom 100%",
+          onEnter: () => console.log("Bronze prize revealed!"),
+        }
+      });
+
+      // ScrollTrigger for #participation (Participation Award)
+      gsap.from("#participation", {
+        opacity: 0,
+        y: -100,
+        duration: 0.4, // Faster animation for Participation Award
+        scrollTrigger: {
+          trigger: "#participation",
+          start: "top 80%",
+          end: "top 60%",
+          onEnter: () => console.log("Participation award revealed!"),
+        }
+      });
     });
 
     return () => ctx.revert(); // Cleanup GSAP context on component unmount
@@ -145,6 +183,6 @@ const PrizeCard = ({
       </div>
     </div>
   );
-};
+}
 
 export { PrizeSection };
