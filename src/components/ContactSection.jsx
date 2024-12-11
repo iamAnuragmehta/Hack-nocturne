@@ -122,13 +122,9 @@ function ContactSection() {
   ];
 
   return (
-    <footer
-      ref={footerRef}
-      className={`contact-footer text-white ${isVisible ? "visible" : ""}`}
-      style={{
-        transform: isVisible ? "translateY(0)" : "translateY(100%)",
-        transition: "transform 0.3s ease-in-out",
-      }}
+    <div
+      className={`contact-footer text-white`}
+      
     >
       {/* <canvas
         ref={canvasRef}
@@ -186,7 +182,7 @@ function ContactSection() {
           ))}
         </div>
       </div>
-    </footer>
+    </div>
   );
 }
 
