@@ -25,8 +25,8 @@ const ResponsiveTimeline = () => {
 
   return (
     <>
-      <section className="flex flex-col text-white mb-12 font-robox">
-        <div className="mb-4 text-3xl text-center md:text-6xl font-bold text-purple-500">
+      <section className="flex flex-col text-white">
+        <div className="mb-4 text-3xl text-center md:text-6xl font-bold text-purple-500 fade-animation">
           Timeline
         </div>
         {isMobile ? <Mobiletimeline /> : <TimelineSection />}

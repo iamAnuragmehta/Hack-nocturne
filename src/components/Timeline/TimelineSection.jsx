@@ -1,9 +1,7 @@
 import "./TimeLine.css";
-import {timelineEvents} from './timelineevent'
+import { timelineEvents } from "./timelineevent";
 
 function TimelineSection() {
-  
-
   const splitevents = timelineEvents.reduce(function (rows, key, index) {
     return (
       (index % 2 == 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) &&
@@ -16,7 +14,6 @@ function TimelineSection() {
       <div className="timeline">
         {splitevents.map((event) => (
           <>
-            {console.log(event[0])}
             <Firsttimeline
               time={event[0].time}
               title={event[0].title}
@@ -37,7 +34,7 @@ function TimelineSection() {
 const Firsttimeline = ({ time, title, description }) => {
   return (
     <>
-      <div className="timeline-component timeline-content p-4 rounded-xl">
+      <div className="timeline-component timeline-content p-4 rounded-xl fade-animation">
         <div className="text-lg mr-4">{time}</div>
         <div className="text-lg text-purple-500">{title}</div>
         <p>{description}</p>
@@ -61,7 +58,7 @@ const Secondtimeline = ({ time, title, description }) => {
         <div className="timeline-circle"></div>
       </div>
 
-      <div className="timeline-component timeline-content p-4 rounded-xl">
+      <div className="timeline-component timeline-content p-4 rounded-xl fade-animation">
         <div className="text-lg mr-4">{time}</div>
         <div className="text-lg text-purple-500">{title}</div>
         <p>{description}</p>

@@ -25,7 +25,7 @@ function SponsorSection() {
             trigger: "#redbar",
             start: "top bottom",
             end: "bottom top",
-            markers: true,
+            markers: false,
             toggleActions: "play none none reverse",
           },
         })
@@ -40,18 +40,18 @@ function SponsorSection() {
     <section id="sponsors" className="rubik px-4 my-20">
       <div className="p-12">
         <div className="text-center">
-          <h2 className=" text-4xl md:text-6xl font-semibold text-purple-500 pb-8">
+          <h2 className=" text-4xl md:text-6xl font-semibold text-purple-500 pb-8 fade-animation">
             Our Sponsors
           </h2>
 
-          <p className="text-purple-300 mb-8">
+          <p className="text-purple-300 mb-8 fade-animation">
             We are thankful to each and every company sponsored our plugin which
             helped us to continue working on it.
           </p>
         </div>
 
         {/* create a infinte carousel for sponsors */}
-        <div className="relative w-full md:overflow-hidden">
+        <div className="relative w-full md:overflow-hidden fade-animation">
           <div className="animate-infinite-scroll flex items-center justify-center">
             {infiniteSponsors.map((sponsor, index) => (
               <div

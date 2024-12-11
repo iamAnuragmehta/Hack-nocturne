@@ -1,8 +1,3 @@
-import { useLayoutEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 import { useState } from "react";
 import Typewriter from "typewriter-effect";
 import "./Faq.css";
@@ -35,33 +30,15 @@ function FaqSection() {
     },
   ];
 
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: ".faqquestion",
-            start: "top bottom",
-            end: "bottom top",
-            markers: true,
-            toggleActions: "play none none reverse",
-          },
-        })
-        .from(".faqquestion", { duration: 1, y: 40, opacity: 0 });
-    });
-
-    return () => ctx.revert(); // Cleanup GSAP context on component unmount
-  }, []);
-
   return (
     <section id="faq" className="rubik px-2 my-20 mx-8 md:mx-20">
       <div className="md:p-12">
         <div className="text-center">
-          <h2 className="mb-4 text-3xl md:text-6xl font-bold text-purple-500">
+          <h2 className="mb-4 text-3xl md:text-6xl font-bold text-purple-500 fade-animation">
             Any Questions? <br />
             Look Here
           </h2>
-          <p className="text-purple-300 hidden sm:block">
+          <p className="text-purple-300 hidden sm:block fade-animation">
             Find answers to the most common questions about our event.
           </p>
         </div>
@@ -70,14 +47,14 @@ function FaqSection() {
       <div className="w-full grid justify-around grid-cols-1 gap-6 mt-12 md:grid-cols-2 text-white">
         <div className="space-y-6">
           {faqs.slice(0, Math.ceil(faqs.length / 2)).map((faq, index) => (
-            <div className="faqquestion" key={index}>
+            <div className="fade-animation" key={index}>
               <Question header={faq.question} text={faq.answer} />
             </div>
           ))}
         </div>
         <div className="space-y-6">
           {faqs.slice(Math.ceil(faqs.length / 2)).map((faq, index) => (
-            <div className="faqquestion" key={index}>
+            <div className="fade-animation" key={index}>
               <Question header={faq.question} text={faq.answer} />
             </div>
           ))}

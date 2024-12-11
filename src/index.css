@@ -46,5 +46,55 @@ body, html {
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
 }
+
+@media (max-width: 600px){
+  body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: clip;
+  }
+}
+
+@media (max-width: 600px) {
+  .preloader-container {
+    font-size: smaller;
+    padding: 20px; /* Adjust padding for smaller devices */
+  }
+  .text-container h1 {
+    gap: 0.3rem; /* Tighter gap for small screens */
+  }
+}
+
+/* Navbar-specific styles */
+.navbar .hamburger {
+  display: block;
+}
+
+.menu-links {
+  transition: all 0.3s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .navbar .hamburger {
+    display: none; /* Hide hamburger menu on larger screens */
+  }
+
+  .menu-links {
+    display: flex !important; /* Ensure links are always visible on larger screens */
+  }
+}
+
+/* Reduce excessive spacing */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.text-animate,
+.image-animate {
+  margin-bottom: 1rem;
+}
+
