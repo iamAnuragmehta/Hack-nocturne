@@ -21,7 +21,7 @@ function PrizeSection() {
     };
   }, []);
 
-  useLayoutEffect(() => {
+  /* useLayoutEffect(() => {
     let ctx = gsap.context(() => {
       // ScrollTrigger for #first (Gold Prize)
       gsap.from("#first", {
@@ -77,12 +77,12 @@ function PrizeSection() {
     });
 
     return () => ctx.revert(); // Cleanup GSAP context on component unmount
-  }, []);
+  }, []); */
 
   return (
     <section className="rubik my-20">
       {/* Heading */}
-      <h2 className="text-purple-500 text-center md:mb-20 font-bold text-8xl">
+      <h2 className="text-purple-500 text-center md:mb-20 font-bold text-8xl fade-animation">
         Prizes
       </h2>
 

@@ -1,5 +1,5 @@
 .contact-footer {
-  position: fixed;
+  display: flex;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -8,9 +8,6 @@
   backdrop-filter: blur(31px);
   -webkit-backdrop-filter: blur(31px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 1000;
-  transform: translateY(100%);
-  transition: transform 0.3s ease-in-out;
 }
 
 .contact-footer.visible {
@@ -132,7 +129,7 @@
     font-size: 0.9rem;
   }
 }
-.social-handles{
+.social-handles {
   display: flex;
   flex-direction: row;
 }
