@@ -41,7 +41,7 @@ const About = () => {
       {/* Text Section */}
       <div className="clear-glass text-left text-base md:text-xl leading-8 md:leading-10 text-white">
         <p >
-          HackNocturn is the flagship hackathon organized by CodeShack, bringing
+          HackNocturne is the flagship hackathon organized by CodeShack, bringing
           together innovative minds to collaborate, create, and compete. This
           24-hour coding marathon is a celebration of creativity and technology,
           designed to challenge participants to push their limits in

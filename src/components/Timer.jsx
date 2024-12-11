@@ -47,7 +47,7 @@ const Timer = ({ targetDate, className }) => {
 
   return (
     <div
-      className={`h-[vh] ${className} text-[5vh] text-slate-300 flex items-center justify-center timer`}
+      className={`h-[10vh] ${className} text-[5vh] text-slate-300 flex items-center justify-center timer`}
       style={{ flexDirection }}
     >
       <h1 className="mr-2 text-purple-500 font-bold">Event Starts In:</h1>
