@@ -20,8 +20,8 @@ function App() {
     <>
       <div>
         <div>
-          {/* <Background /> */}
-          <ParticleCanvas />
+          <Background />
+          {/* <ParticleCanvas /> */}
         </div>
         {isPreloaderVisible && (
           <Preloader onComplete={handlePreloaderComplete} />
