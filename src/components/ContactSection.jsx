@@ -7,6 +7,7 @@ import {
   faLinkedin,
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
+import location from "../assest/location.jpg";
 import "./contact.css";
 
 function ContactSection() {
@@ -142,7 +143,7 @@ function ContactSection() {
               rel="noopener noreferrer"
             >
               <img
-                src="src/assest/location.jpg"
+                src={location}
                 alt="Location"
                 className="location-image hidden sm:block"
               />
