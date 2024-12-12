@@ -1,22 +1,9 @@
 import React, { useState, useEffect } from "react";
 import GlitchText from "./Glitch";
 import "../components/Faq/Faq.css";
+import { calculateFontSize } from "./calculateFontSize";
 
 const About = () => {
-  // State to store the screen width
-  const [screenSize, setScreenSize] = useState(window.innerWidth);
-
-  // Function to calculate font size based on screen size
-  const calculateFontSize = () => {
-    if (screenSize < 600) {
-      return "3.3rem"; // Small screen: font size 3rem
-    } else if (screenSize < 768) {
-      return "4rem"; // Medium screen: font size 4rem
-    } else {
-      return "7rem"; // Large screen: font size 7rem
-    }
-  };
-
   // Effect to listen for window resizing
   useEffect(() => {
     const handleResize = () => {
@@ -32,13 +19,13 @@ const About = () => {
   return (
     <section className="flex flex-col p-8 md:p-12">
       {/* Title Section */}
-     
-        <h2 className="text-purple-500 text-center md:mb-10 font-bold text-8xl fade-animation">
-          About Us
-        </h2>
+
+      <div className="fade-animation text-center mb-4">
+        <GlitchText size={calculateFontSize()} heading="About Us" />
+      </div>
 
       {/* Text Section */}
-      <div className="clear-glass text-left md:text-lg text-white">
+      <div className="text-left text-xs md:text-lg text-white">
         <p className=" fade-animation">
           HackNocturn is the flagship hackathon organized by CodeShack, bringing
           together innovative minds to collaborate, create, and compete. This

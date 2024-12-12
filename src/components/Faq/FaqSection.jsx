@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Typewriter from "typewriter-effect";
 import "./Faq.css";
+import GlitchText from "../Glitch";
 
 function FaqSection() {
   const faqs = [
@@ -29,15 +30,30 @@ function FaqSection() {
       answer: "The event will be held from 21 February 2025.",
     },
   ];
+  
+  // State to store the screen width
+  const screenSize = window.innerWidth;
+
+  // Function to calculate font size based on screen size
+  const calculateFontSize = () => {
+    if (screenSize < 600) {
+      return "2rem"; // Small screen: font size 3rem
+    } else if (screenSize < 768) {
+      return "3rem"; // Medium screen: font size 4rem
+    } else {
+      return "4rem"; // Large screen: font size 7rem
+    }
+  };
 
   return (
     <section id="faq" className="rubik px-2 my-20 mx-8 md:mx-20">
       <div className="md:p-12">
         <div className="text-center">
-          <h2 className="mb-4 text-3xl md:text-6xl font-bold text-purple-500 fade-animation">
-            Any Questions? <br />
-            Look Here
-          </h2>
+          <div className="fade-animation text-center">
+            <GlitchText size={calculateFontSize()} heading="Any Questions?" />
+            <GlitchText size={calculateFontSize()} heading="Look Here" />
+          </div>
+
           <p className="text-purple-300 hidden sm:block fade-animation">
             Find answers to the most common questions about our event.
           </p>

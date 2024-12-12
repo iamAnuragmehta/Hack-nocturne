@@ -1,6 +1,9 @@
 import { useLayoutEffect, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import GlitchText from "../Glitch";
+import { calculateFontSize } from "../calculateFontSize";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -82,9 +85,9 @@ function PrizeSection() {
   return (
     <section className="rubik my-20">
       {/* Heading */}
-      <h2 className="text-purple-500 text-center md:mb-20 font-bold text-8xl fade-animation">
-        Prizes
-      </h2>
+      <div className="fade-animation text-center">
+        <GlitchText size={calculateFontSize()} heading="Prizes" />
+      </div>
 
       {/* 🥈🏆🥉 */}
       <div className="flex flex-col m-12 md:mx-auto md:flex-row px-4 md:px-8 justify-center gap-8">
@@ -177,12 +180,12 @@ function PrizeSection() {
       </div>
 
       {/* Participation Award */}
-      <div className="fade-animation">
+      <div className="">
         <div
           id="participation"
           className="w-full lg:max-w-lg md:max-w-2xl mx-auto px-4"
         >
-          <div className="clear-glass rounded-xl md:rounded-3xl p-8 text-center border-2 border-purple-500">
+          <div className="fade-animation clear-glass rounded-xl md:rounded-3xl p-8 text-center border-2 border-purple-500">
             <div className="text-5xl mb-6 mx-auto w-20 sm:h-20 flex items-center justify-center rounded-full">
               🎉
             </div>

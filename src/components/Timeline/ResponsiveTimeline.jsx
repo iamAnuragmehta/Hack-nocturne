@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { TimelineSection } from "./TimelineSection";
 import Mobiletimeline from "./Mobiletimeline";
+import GlitchText from "../Glitch";
+import { calculateFontSize } from "../calculateFontSize";
 
 const ResponsiveTimeline = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -26,9 +28,9 @@ const ResponsiveTimeline = () => {
   return (
     <>
       <section className="flex flex-col text-white">
-        <div className="mb-4 text-3xl text-center md:text-6xl font-bold text-purple-500 fade-animation">
-          Timeline
-        </div>
+      <div className="fade-animation text-center">
+        <GlitchText size={calculateFontSize()} heading="Timeline" />
+      </div>
         {isMobile ? <Mobiletimeline /> : <TimelineSection />}
       </section>
     </>

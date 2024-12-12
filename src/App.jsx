@@ -33,10 +33,9 @@ function App() {
             </div>
             <About />
             <PrizeSection />
+            <ResponsiveTimeline />
             <SponsorSection />
             <FaqSection />
-            <ResponsiveTimeline />
-            <section />
             <ContactSection />
           </>
         )}

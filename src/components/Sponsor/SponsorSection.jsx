@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import GlitchText from "../Glitch";
 
 import google from "./sponsors/google_logo.png";
 import react from "./sponsors/react_logo.png";
@@ -36,18 +37,27 @@ function SponsorSection() {
     return () => ctx.revert(); // Cleanup GSAP context on component unmount
   }, []);
 
+  // State to store the screen width
+  const screenSize = window.innerWidth;
+
+  // Function to calculate font size based on screen size
+  const calculateFontSize = () => {
+    if (screenSize < 600) {
+      return "2rem"; // Small screen: font size 3rem
+    } else if (screenSize < 768) {
+      return "3rem"; // Medium screen: font size 4rem
+    } else {
+      return "4rem"; // Large screen: font size 7rem
+    }
+  };
+
   return (
     <section id="sponsors" className="rubik px-4 my-20">
       <div className="p-12">
         <div className="text-center">
-          <h2 className=" text-4xl md:text-6xl font-semibold text-purple-500 pb-8 fade-animation">
-            Our Sponsors
-          </h2>
-
-          <p className="text-purple-300 mb-8 fade-animation">
-            We are thankful to each and every company sponsored our plugin which
-            helped us to continue working on it.
-          </p>
+          <div className="fade-animation text-center">
+            <GlitchText size={calculateFontSize()} heading="Our Sponsors" />
+          </div>
         </div>
 
         {/* create a infinte carousel for sponsors */}

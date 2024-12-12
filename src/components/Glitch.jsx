@@ -9,9 +9,7 @@ function  GlitchText (props) {
 
   return (
     <h1 className={`glitch  text-gray-300`} style={dynamicStyle} >
-      <span aria-hidden="true">{props.heading}</span>
       {props.heading}
-      <span aria-hidden="true">{props.heading}</span>
     </h1>
   );
 };
