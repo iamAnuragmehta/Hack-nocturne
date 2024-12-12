@@ -5,9 +5,18 @@ import bg from "../assest/comp.webp";
 import Navbar from "./Navbar";
 import Timer from "./Timer";
 import "../index.css";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faTwitter, faInstagram ,faGithub } from "@fortawesome/free-brands-svg-icons";
+import "../components/contact.css"
 const Body = () => {
   const [screenSize, setScreenSize] = useState(window.innerWidth);
+
+  const socialLinks = [
+    { icon: faFacebook, url: "https://facebook.com" },
+    { icon: faTwitter, url: "https://twitter.com" },
+    { icon: faInstagram, url: "https://instagram.com" },
+    { icon: faGithub, url: "https://github.com/your_username" },
+  ];
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -37,13 +46,18 @@ const Body = () => {
       { y: 50, opacity: 0 },
       { y: 0, opacity: 1, duration: 1.2, ease: "power2.out", stagger: 0.3, delay: 1.2 }
     );
+    gsap.fromTo(
+      ".timer-animate",
+      { x:100 , opacity: 0 },
+      { x: 0, opacity: 1, duration: 1.2, ease: "power2.out", stagger: 0.3, delay: 1.2 }
+    );
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const calculateHeadingSize = () => {
     if (screenSize < 600) {
-      return "1.2rem"; // Small size for mobile
+      return "1.5rem"; // Small size for mobile
     } else if (screenSize < 768) {
       return "2rem"; // Medium size for tablets
     } else {
@@ -54,12 +68,12 @@ const Body = () => {
   const shouldHideImage = screenSize < 600; // Hide image for screens smaller than 600px
 
   return (
-    <>
+    <div className="h-[90vh] flex flex-col justify-between">
       <Navbar />
 
-      <div className="flex flex-col md:flex-row items-center md:items-start justify-between mt-[7vh] md:mt-[7vh] pt-[60px]"> {/* Add pt-[60px] to add space below fixed navbar */}
+      <div className="flex-grow flex flex-col md:flex-row items-center md:items-start justify-between mt-[7vh] md:mt-[7vh] pt-[60px]">
         {/* Left Text Section */}
-        <div className="text-white items-center md:right-[50%] md:text-left px-4 md:px-12 md:w-1/2">
+        <div className="text-white items-center text-center md:right-[50%] md:text-left px-4 md:px-12 md:w-1/2">
           <div className="space-y-4 text-animate">
             <GlitchText size={calculateHeadingSize()} heading="Dive into the future" />
             <GlitchText size={calculateHeadingSize()} heading="Build, Innovate, and Conquer" />
@@ -85,7 +99,24 @@ const Body = () => {
           </div>
         )}
       </div>
-    </>
+
+      {/* Social Handles Section */}
+      {screenSize < 768 && (
+        <div className=" h-[8vh] mb-10 flex items-center justify-evenly">
+          {socialLinks.map((social, index) => (
+            <a
+              key={index}
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className=" text-[2rem] text-white hover:text-purple-700  transition-transform:e mx-2"
+            >
+              <FontAwesomeIcon icon={social.icon} />
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 

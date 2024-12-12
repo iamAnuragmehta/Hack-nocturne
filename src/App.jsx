@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { Link } from "react-scroll";
 import ParticleCanvas from "./components/background/ParticleCanvas";
 import Body from "./components/Body";
 import Preloader from "./components/Preloader";

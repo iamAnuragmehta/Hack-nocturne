@@ -42,16 +42,36 @@ const Timer = ({ targetDate, className }) => {
     return `${days}d : ${hours}h : ${minutes}m : ${seconds}s`;
   };
 
-  // Adjust the flex direction based on screen size
+  // Function to determine font size based on screen size
+  const getFontSize = () => {
+    if (screenSize < 600) {
+      return "9vw"; // Small size for mobile
+    } else if (screenSize < 1024) {
+      return "2.5vw"; // Medium size for tablets
+    } else {
+      return "2.5vw"; // Larger size for desktops
+    }
+  };
+
   const flexDirection = screenSize < 768 ? "column" : "row"; // Column for mobile, row for desktop
 
   return (
     <div
-      className={`h-[vh] ${className} text-[5vh] text-slate-300 flex items-center justify-center timer`}
+      className={`h-auto ${className} text-slate-300 flex items-center justify-center timer`}
       style={{ flexDirection }}
     >
-      <h1 className="mr-2 text-purple-500 font-bold">Event Starts In:</h1>
-      <h1 className="text-purple-500 font-normal">{timeLeft > 0 ? getFormattedTime(timeLeft) : "The event has started!"}</h1>
+      <h1
+        className="mr-2 text-purple-500 font-bold"
+        style={{ fontSize: getFontSize() }}
+      >
+        Event Starts In:
+      </h1>
+      <h1
+        className="text-purple-500 font-normal"
+        style={{ fontSize: getFontSize() }}
+      >
+        {timeLeft > 0 ? getFormattedTime(timeLeft) : "The event has started!"}
+      </h1>
     </div>
   );
 };

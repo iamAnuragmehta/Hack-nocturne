@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../index.css"; // Add any required custom styles
 import GlitchText from "./Glitch";
+import { Link } from "react-scroll";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,19 +34,21 @@ const Navbar = () => {
   const calculateLogoSize = () => {
     const baseSize = calculateFontSize();
     const sizeValue = parseFloat(baseSize); // Extract numeric part
-    return `${sizeValue + 0.6}rem`; // Increase by 0.6rem for logo
+    return `${sizeValue + 0.55}rem`; // Increase by 0.6rem for logo
   };
 
   return (
     <nav className="navbar backdrop-blur-sm text-white p-4 flex justify-between items-center fixed top-0 left-0 right-0 z-50">
       {/* Logo */}
-      <div className="logo font-bold">
-        <GlitchText heading="<hacknocturne/>" size={calculateLogoSize()} />
-      </div>
+      <a to="/">
+        <div className="logo font-bold">
+          <GlitchText heading="<hacknocturne/>" size={calculateLogoSize()} />
+        </div>
+      </a>
 
       {/* Hamburger Icon */}
       <button
-        className={`hamburger md:hidden`}
+        className={`hamburger md:hidden text-3xl`}
         onClick={toggleMenu}
         aria-label="Toggle menu"
       >
@@ -58,17 +61,17 @@ const Navbar = () => {
           menuOpen ? "flex" : "hidden"
         } absolute md:static top-[70px] left-[50%] w-full md:w-auto bg-black opacity-85 backdrop-blur-md md:bg-transparent p-4 md:p-0`}
       >
-        <a href="#home" className="hover:underline border-b-2">
-          <GlitchText size={calculateFontSize()} heading="Home" />
-        </a>
-        <a href="#about" className="hover:underline border-b-2 border-purple-500 ">
+        <a href="#about" className="hover:underline border-b-2">
           <GlitchText size={calculateFontSize()} heading="About" />
         </a>
-        <a href="#register" className="hover:underline border-b-2 border-purple-500">
-          <GlitchText size={calculateFontSize()} heading="Register" />
+        <a href="#prizes" className="hover:underline border-b-2 border-purple-500 ">
+          <GlitchText size={calculateFontSize()} heading="prizes" />
         </a>
-        <a href="#contact" className="hover:underline border-b-2 border-purple-500">
-          <GlitchText size={calculateFontSize()} heading="Contact" />
+        <a href="#timeline" className="hover:underline border-b-2 border-purple-500">
+          <GlitchText size={calculateFontSize()} heading="timeline" />
+        </a>
+        <a href="#faq's" className="hover:underline border-b-2 border-purple-500">
+          <GlitchText size={calculateFontSize()} heading="faq's" />
         </a>
       </div>
     </nav>
