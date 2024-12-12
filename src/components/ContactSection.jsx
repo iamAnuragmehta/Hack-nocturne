@@ -142,7 +142,7 @@ function ContactSection() {
               rel="noopener noreferrer"
             >
               <img
-                src="src\assest\location.jpg"
+                src="src/assest/location.jpg"
                 alt="Location"
                 className="location-image hidden sm:block"
               />
