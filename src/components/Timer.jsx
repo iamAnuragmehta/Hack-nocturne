@@ -45,11 +45,11 @@ const Timer = ({ targetDate, className }) => {
   // Function to determine font size based on screen size
   const getFontSize = () => {
     if (screenSize < 600) {
-      return "9vw"; // Small size for mobile
+      return "1.5rem"; // Small size for mobile
     } else if (screenSize < 1024) {
-      return "2.5vw"; // Medium size for tablets
+      return "2rem"; // Medium size for tablets
     } else {
-      return "2.5vw"; // Larger size for desktops
+      return "2rem"; // Larger size for desktops
     }
   };
 
@@ -57,7 +57,7 @@ const Timer = ({ targetDate, className }) => {
 
   return (
     <div
-      className={`h-auto ${className} text-slate-300 flex items-center justify-center timer`}
+      className={`h-auto ${className} text-slate-300 flex items-center justify-center timer mb-4`}
       style={{ flexDirection }}
     >
       <h1

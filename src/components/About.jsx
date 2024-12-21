@@ -17,7 +17,7 @@ const About = () => {
   }, []);
 
   return (
-    <section className="flex flex-col p-8 md:p-12">
+    <section id="about" className="flex flex-col p-8 md:p-12">
       {/* Title Section */}
 
       <div className="fade-animation text-center mb-4">

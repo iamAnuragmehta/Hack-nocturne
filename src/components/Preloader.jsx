@@ -54,7 +54,12 @@ const Preloader = ({ onComplete }) => {
       window.removeEventListener("resize", handleResize); // Clean up event listener
       // Clean up ScrollTriggers and restore overflow
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      document.body.style.overflow = "";
+      if (screenSize < 500) {
+        document.body.style.overflow = "";
+        return; // Small size for mobile
+      }
+        document.body.style.overflow = "visible"; // Large size for desktops
+      
     };
   }, [onComplete]);
 

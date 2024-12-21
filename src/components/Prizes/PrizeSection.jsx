@@ -83,7 +83,7 @@ function PrizeSection() {
   }, []); */
 
   return (
-    <section className="rubik my-20">
+    <section id="prizes" className="rubik my-20">
       {/* Heading */}
       <div className="fade-animation text-center">
         <GlitchText size={calculateFontSize()} heading="Prizes" />

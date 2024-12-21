@@ -6,7 +6,8 @@ export default function Mobiletimeline() {
     <div className="timeline flex items-center">
       <div className="outer">
         {timelineEvents.map((event, index) => (
-          <div key={index} className="card ">
+          <div key={index} className="card">
+            <div className="timeline-dot" aria-hidden="true" />
             <div className="info timeline-content p-2 rounded-xl fade-animation">
               <div className="timeline-title">
                 <div className="text-lg mr-4">{event.time}</div>

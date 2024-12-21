@@ -46,7 +46,7 @@ function FaqSection() {
   };
 
   return (
-    <section id="faq" className="rubik px-2 my-20 mx-8 md:mx-20">
+    <section id="faq's" className="rubik px-2 my-20 mx-8 md:mx-20">
       <div className="md:p-12">
         <div className="text-center">
           <div className="fade-animation text-center">

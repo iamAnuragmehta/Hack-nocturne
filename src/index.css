@@ -5,10 +5,13 @@
 html {
   background-color: black;
   z-index: -2;
+  scroll-behavior: smooth;
 }
 
 body {
   z-index: 1;
+  overflow: auto;
+  width: fit-content;
 }
 
 #tsparticles {
