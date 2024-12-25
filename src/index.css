@@ -101,3 +101,10 @@ body {
 .image-animate {
   margin-bottom: 1rem;
 }
+
+
+::selection {
+  background-color:#A855f7
+  ; /* Change background to violet */
+  color: white; /* Change text color to white (optional) */
+}
