@@ -13,70 +13,74 @@ import {
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 import "../components/contact.css";
+
 const Body = () => {
   const [screenSize, setScreenSize] = useState(window.innerWidth);
 
   const socialLinks = [
-    { icon: faFacebook, url: "https://facebook.com" },
-    { icon: faTwitter, url: "https://twitter.com" },
-    { icon: faInstagram, url: "https://instagram.com" },
-    { icon: faGithub, url: "https://github.com/your_username" },
+    { icon: faFacebook, url: "https://facebook.com", label: "Facebook" },
+    { icon: faTwitter, url: "https://twitter.com", label: "Twitter" },
+    { icon: faInstagram, url: "https://instagram.com", label: "Instagram" },
+    { icon: faGithub, url: "https://github.com/your_username", label: "GitHub" },
   ];
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
     window.addEventListener("resize", handleResize);
 
-    // Animations
-    gsap.fromTo(
-      ".navbar",
-      { y: -100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.1, ease: "power2.out", delay: 0.2 }
-    );
-
-    gsap.fromTo(
-      ".text-animate",
-      { x: -150, opacity: 0 },
+    // GSAP Animations
+    const animations = [
       {
-        x: 0,
-        opacity: 1,
-        duration: 1.5,
-        ease: "power2.out",
-        stagger: 0.3,
-        delay: 0.5,
-      }
-    );
-
-    gsap.fromTo(
-      ".image-animate",
-      { x: 150, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1.8, ease: "power2.out", delay: 0.8 }
-    );
-
-    gsap.fromTo(
-      ".bodybutton button",
-      { y: 50, opacity: 0 },
+        target: ".navbar",
+        from: { y: -100, opacity: 0 },
+        to: { y: 0, opacity: 1, duration: 1.1, ease: "power2.out", delay: 0.2 },
+      },
       {
-        y: 0,
-        opacity: 1,
-        duration: 1.2,
-        ease: "power2.out",
-        stagger: 0.3,
-        delay: 1.2,
-      }
-    );
-    gsap.fromTo(
-      ".timer-animate",
-      { x: 100, opacity: 0 },
+        target: ".text-animate",
+        from: { x: -150, opacity: 0 },
+        to: {
+          x: 0,
+          opacity: 1,
+          duration: 1.5,
+          ease: "power2.out",
+          stagger: 0.3,
+          delay: 0.5,
+        },
+      },
       {
-        x: 0,
-        opacity: 1,
-        duration: 1.2,
-        ease: "power2.out",
-        stagger: 0.3,
-        delay: 1.2,
-      }
-    );
+        target: ".image-animate",
+        from: { x: 150, opacity: 0 },
+        to: { x: 0, opacity: 1, duration: 1.8, ease: "power2.out", delay: 0.8 },
+      },
+      {
+        target: ".bodybutton button",
+        from: { y: 50, opacity: 0 },
+        to: {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power2.out",
+          stagger: 0.3,
+          delay: 1.2,
+        },
+      },
+      {
+        target: ".timer-animate",
+        from: { x: 100, opacity: 0 },
+        to: {
+          x: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power2.out",
+          stagger: 0.3,
+          delay: 1.2,
+        },
+      },
+    ];
+
+    animations.forEach(({ target, from, to }) => {
+      gsap.fromTo(target, from, to);
+    });
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -97,10 +101,10 @@ const Body = () => {
     <section className="flex flex-col justify-between">
       <Navbar />
 
-      <div className="flex-grow flex flex-col md:flex-row items-center md:items-start justify-between mt-[7vh] md:mt-[7vh] pt-[60px]">
+      <div className="flex-grow flex flex-col md:flex-row items-center justify-between mt-[7vh] pt-[60px]">
         {/* Left Text Section */}
-        <div className="text-white items-center text-center md:right-[50%] md:text-left px-4 md:px-12 md:w-1/2">
-          <div className="space-y- text-animate">
+        <div className="text-white text-center md:text-left px-4 md:px-12 md:w-1/2">
+          <div className="space-y-6 text-animate">
             <GlitchText
               size={calculateHeadingSize()}
               heading="Dive into the future"
@@ -114,13 +118,19 @@ const Body = () => {
               heading="The metaverse at HackNocturne"
             />
           </div>
-          {/* Button and Timer below the text */}
-          <div className="bodybutton flex flex-col items-center mt-7">
-            <button className="registerbutton rounded-xl bg-purple-500 p-2.5 w-auto">
-              <GlitchText size="1.5rem" heading="Register Now" />
-            </button>
+
+          {/* Buttons and Timer */}
+          <div className="bodybutton flex flex-col justify-start mt-7">
+            <div className="button flex  flex-col md:flex-row  gap-4 md:gap-10 items-center">
+              <button className="registerbutton rounded-xl bg-purple-500 p-2.5">
+                <GlitchText size="1.5rem" heading="Register Now" />
+              </button>
+              <button className="registerbutton rounded-xl bg-purple-500 p-2.5">
+                <GlitchText size="1.5rem" heading="Brochure" />
+              </button>
+            </div>
             <Timer
-              className="timer-animate mt-8 text-nowrap"
+              className="timer-animate mt-10"
               targetDate="2025-02-22T00:00:00"
             />
           </div>
@@ -140,14 +150,15 @@ const Body = () => {
 
       {/* Social Handles Section */}
       {screenSize < 768 && (
-        <div className=" h-[8vh] mb-10 flex items-center justify-evenly">
+        <div className="h-[8vh] mb-10 flex items-center justify-evenly">
           {socialLinks.map((social, index) => (
             <a
               key={index}
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className=" text-[2rem] text-white hover:text-purple-700  transition-transform:e mx-2"
+              className="text-[2rem] text-white hover:text-purple-700 transition-transform"
+              aria-label={social.label}
             >
               <FontAwesomeIcon icon={social.icon} />
             </a>

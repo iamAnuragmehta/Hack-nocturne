@@ -57,7 +57,7 @@ const Timer = ({ targetDate, className }) => {
 
   return (
     <div
-      className={`h-auto ${className} text-slate-300 flex items-center justify-center timer mb-4`}
+      className={`h-auto ${className} text-slate-300 flex timer mb-4`}
       style={{ flexDirection }}
     >
       <h1
