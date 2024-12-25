@@ -5,6 +5,7 @@ import bg from "../assest/comp.webp";
 import Navbar from "./Navbar";
 import Timer from "./Timer";
 import "../index.css";
+import "../CSS files/Body.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
@@ -21,7 +22,11 @@ const Body = () => {
     { icon: faFacebook, url: "https://facebook.com", label: "Facebook" },
     { icon: faTwitter, url: "https://twitter.com", label: "Twitter" },
     { icon: faInstagram, url: "https://instagram.com", label: "Instagram" },
-    { icon: faGithub, url: "https://github.com/your_username", label: "GitHub" },
+    {
+      icon: faGithub,
+      url: "https://github.com/your_username",
+      label: "GitHub",
+    },
   ];
 
   useEffect(() => {
@@ -105,18 +110,45 @@ const Body = () => {
         {/* Left Text Section */}
         <div className="text-white text-center md:text-left px-4 md:px-12 md:w-1/2">
           <div className="space-y-6 text-animate">
-            <GlitchText
-              size={calculateHeadingSize()}
-              heading="Dive into the future"
-            />
-            <GlitchText
-              size={calculateHeadingSize()}
-              heading="Build, Innovate, and Conquer"
-            />
-            <GlitchText
-              size={calculateHeadingSize()}
-              heading="The metaverse at HackNocturne"
-            />
+            <h1
+              className="uppercase maintext"
+              style={{ 
+                fontSize:
+                  screenSize < 600
+                    ? "2rem"
+                    : screenSize < 800
+                    ? "2.5rem"
+                    : "3rem", // Adjust sizes as needed
+              }}
+            >
+              Dive into the future
+            </h1>
+            <h1
+              className="uppercase maintext"
+              style={{
+                fontSize:
+                  screenSize < 600
+                    ? "2rem"
+                    : screenSize < 800
+                    ? "2.5rem"
+                    : "3rem", // Adjust sizes as needed
+              }}
+            >
+              Build, Innovate, and Conquer
+            </h1>
+            <h1
+              className="uppercase maintext"
+              style={{
+                fontSize:
+                  screenSize < 600
+                    ? "2rem"
+                    : screenSize < 800
+                    ? "2.5rem"
+                    : "3rem", // Adjust sizes as needed
+              }}
+            >
+              The metaverse at HackNocturne
+            </h1>
           </div>
 
           {/* Buttons and Timer */}
@@ -141,7 +173,7 @@ const Body = () => {
           <div className="image-section image-animate md:w-1/2 flex justify-end px-4">
             <img
               src={bg}
-              className="h-[40vw] md:h-[38vw] max-w-[90%] md:max-w-[100%] rounded-lg"
+              className="h-[42vw] md:h-[38vw] max-w-[90%] md:max-w-[100%] rounded-lg"
               alt="Hackathon concept"
             />
           </div>

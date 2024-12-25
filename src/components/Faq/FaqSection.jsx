@@ -51,7 +51,7 @@ function FaqSection() {
         <div className="text-center">
           <div className="fade-animation text-center">
             <GlitchText size={calculateFontSize()} heading="Any Questions?" />
-            <GlitchText size={calculateFontSize()} heading="Look Here" />
+            <GlitchText size={calculateFontSize()} heading="check here " />
           </div>
 
           <p className="text-purple-300 hidden sm:block fade-animation">
@@ -123,7 +123,7 @@ const Question = ({ header, text }) => {
               options={{
                 strings: [text],
                 autoStart: true,
-                delay: 50,
+                delay: 15,
                 deleteSpeed: Infinity,
               }}
             />

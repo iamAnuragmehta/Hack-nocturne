@@ -8,3 +8,11 @@
 .bodybutton {
   gap: 3vh;
 }
+
+
+
+.maintext {
+  font-family: "Bebas Neue", serif;
+  font-weight: 400;
+  font-style: normal;
+}
