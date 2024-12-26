@@ -21,7 +21,7 @@ const About = () => {
       {/* Title Section */}
 
       <div className="fade-animation text-center mb-4">
-        <GlitchText size={calculateFontSize()} heading="About Us" />
+        <div className="text-white uppercase maintext text-8xl">About us</div>
       </div>
 
       {/* Text Section */}

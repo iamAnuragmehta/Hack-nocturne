@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import GlitchText from "./Glitch";
 import gsap from "gsap";
+
 import bg from "../assest/comp.webp";
+import techhub from "../assest/2.png";
+import glug from "../assest/3.png";
+import glug2 from "../assest/glug_logo.png";
+import techhub2 from "../assest/techhub_logo.png";
+
 import Navbar from "./Navbar";
 import Timer from "./Timer";
 import "../index.css";
-import "../CSS files/Body.css"
+import "../CSS files/Body.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
@@ -14,6 +20,7 @@ import {
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 import "../components/contact.css";
+import MobileBody from "./MobileBody";
 
 const Body = () => {
   const [screenSize, setScreenSize] = useState(window.innerWidth);
@@ -90,115 +97,110 @@ const Body = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const calculateHeadingSize = () => {
-    if (screenSize < 600) {
-      return "2rem"; // Small size for mobile
-    } else if (screenSize < 800) {
-      return "2rem"; // Medium size for tablets
-    } else {
-      return "2.5rem"; // Large size for desktops
-    }
-  };
-
-  const shouldHideImage = screenSize < 600; // Hide image for screens smaller than 600px
-
   return (
     <section className="flex flex-col justify-between">
       <Navbar />
 
-      <div className="flex-grow flex flex-col md:flex-row items-center justify-between mt-[7vh] pt-[60px]">
-        {/* Left Text Section */}
-        <div className="text-white text-center md:text-left px-4 md:px-12 md:w-1/2">
-          <div className="space-y-6 text-animate">
-            <h1
-              className="uppercase maintext"
-              style={{ 
-                fontSize:
-                  screenSize < 600
-                    ? "2rem"
-                    : screenSize < 800
-                    ? "2.5rem"
-                    : "3rem", // Adjust sizes as needed
-              }}
-            >
-              Dive into the future
-            </h1>
-            <h1
-              className="uppercase maintext"
-              style={{
-                fontSize:
-                  screenSize < 600
-                    ? "2rem"
-                    : screenSize < 800
-                    ? "2.5rem"
-                    : "3rem", // Adjust sizes as needed
-              }}
-            >
-              Build, Innovate, and Conquer
-            </h1>
-            <h1
-              className="uppercase maintext"
-              style={{
-                fontSize:
-                  screenSize < 600
-                    ? "2rem"
-                    : screenSize < 800
-                    ? "2.5rem"
-                    : "3rem", // Adjust sizes as needed
-              }}
-            >
-              The metaverse at HackNocturne
-            </h1>
-          </div>
-
-          {/* Buttons and Timer */}
-          <div className="bodybutton flex flex-col justify-start mt-7">
-            <div className="button flex  flex-col md:flex-row  gap-4 md:gap-10 items-center">
-              <button className="registerbutton rounded-xl bg-purple-500 p-2.5">
-                <GlitchText size="1.5rem" heading="Register Now" />
-              </button>
-              <button className="registerbutton rounded-xl bg-purple-500 p-2.5">
-                <GlitchText size="1.5rem" heading="Brochure" />
-              </button>
-            </div>
-            <Timer
-              className="timer-animate mt-10"
-              targetDate="2025-02-22T00:00:00"
-            />
-          </div>
-        </div>
-
-        {/* Right Image Section */}
-        {!shouldHideImage && (
-          <div className="image-section image-animate md:w-1/2 flex justify-end px-4">
-            <img
-              src={bg}
-              className="h-[42vw] md:h-[38vw] max-w-[90%] md:max-w-[100%] rounded-lg"
-              alt="Hackathon concept"
-            />
-          </div>
-        )}
-      </div>
-
-      {/* Social Handles Section */}
-      {screenSize < 768 && (
-        <div className="h-[8vh] mb-10 flex items-center justify-evenly">
-          {socialLinks.map((social, index) => (
-            <a
-              key={index}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[2rem] text-white hover:text-purple-700 transition-transform"
-              aria-label={social.label}
-            >
-              <FontAwesomeIcon icon={social.icon} />
-            </a>
-          ))}
-        </div>
-      )}
+      {screenSize < 600 ? <MobileBody /> : <DesktopBody />}
     </section>
   );
 };
+function DesktopBody() {
+  const [screenSize, setScreenSize] = useState(window.innerWidth);
 
+  const shouldHideImage = screenSize < 600; // Hide image for screens smaller than 600px
+
+  return (
+    <div className="flex-grow flex flex-col md:flex-row items-center justify-between mt-[7vh] pt-[60px]">
+      {/* Left Text Section */}
+      <div className="text-white text-center md:text-left px-4 md:px-12 md:w-1/2">
+        <div className="space-y-6 text-animate">
+          <h1
+            className="uppercase maintext"
+            style={{
+              fontSize:
+                screenSize < 600
+                  ? "2rem"
+                  : screenSize < 800
+                  ? "2.5rem"
+                  : "3rem", // Adjust sizes as needed
+            }}
+          >
+            Dive into the future
+          </h1>
+          <h1
+            className="uppercase maintext"
+            style={{
+              fontSize:
+                screenSize < 600
+                  ? "2rem"
+                  : screenSize < 800
+                  ? "2.5rem"
+                  : "3rem", // Adjust sizes as needed
+            }}
+          >
+            Build, Innovate, and Conquer
+          </h1>
+          <h1
+            className="uppercase maintext"
+            style={{
+              fontSize:
+                screenSize < 600
+                  ? "2rem"
+                  : screenSize < 800
+                  ? "2.5rem"
+                  : "3rem", // Adjust sizes as needed
+            }}
+          >
+            The metaverse at Hack-Nocturne
+          </h1>
+        </div>
+
+        {/* Buttons and Timer */}
+        <div className="bodybutton flex flex-col justify-start">
+          <Timer
+            className="timer-animate m-10"
+            targetDate="2025-02-22T00:00:00"
+          />
+          <div className="button flex  flex-col md:flex-row  gap-4 md:gap-10 items-center">
+            <button className="registerbutton rounded-xl bg-purple-500 p-2">
+              <div className="uppercase maintext text-2xl">Register Now</div>
+            </button>
+            <button className="registerbutton rounded-xl bg-purple-500 p-2">
+              <div className="uppercase maintext text-2xl">Brochure</div>
+            </button>
+          </div>
+        </div>
+      </div>
+      {/* Right Image Section */}
+      {!shouldHideImage && (
+        <div className="image-section image-animate md:w-1/2 flex justify-end px-4">
+          <img
+            src={bg}
+            className="h-[42vw] md:h-[38vw] max-w-[90%] md:max-w-[100%] rounded-lg"
+            alt="Hackathon concept"
+          />
+        </div>
+      )}
+      {screenSize < 768 && (
+        <div className="flex justify-center items-center flex-col mt-4">
+          <p className="text-white uppercase maintext">presented by:</p>
+          <div className="flex flex-row gap-4 my-4">
+            <a href="https://www.instagram.com/glugmvit">
+              <img className="h-20 rounded-full" src={glug} alt="Glug MVIT" />
+            </a>
+            <a href="https://www.instagram.com/techhub_community?igsh=OGVld2xsNzBtbWVm">
+              <img
+                className="h-20 rounded-full"
+                src={techhub}
+                alt="TechHub community"
+              />
+            </a>
+          </div>
+        </div>
+      )}
+      ;
+    </div>
+  );
+}
 export default Body;

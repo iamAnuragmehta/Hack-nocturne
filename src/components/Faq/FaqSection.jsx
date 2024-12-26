@@ -50,8 +50,8 @@ function FaqSection() {
       <div className="md:p-12">
         <div className="text-center">
           <div className="fade-animation text-center">
-            <GlitchText size={calculateFontSize()} heading="Any Questions?" />
-            <GlitchText size={calculateFontSize()} heading="check here " />
+          <div className="text-white uppercase maintext text-6xl">Any Questions?</div>
+          <div className="text-white uppercase maintext text-4xl">check here</div>
           </div>
 
           <p className="text-purple-300 hidden sm:block fade-animation">

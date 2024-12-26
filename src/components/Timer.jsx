@@ -39,7 +39,32 @@ const Timer = ({ targetDate, className }) => {
     let minutes = Math.floor(totalSeconds / 60);
     let seconds = totalSeconds % 60;
 
-    return `${days}d : ${hours}h : ${minutes}m : ${seconds}s`;
+    return (
+      <div className="flex flex-row justify-center md:justify-start">
+        <div className="flex flex-col">
+          <p className="flex justify-center text-6xl maintext">{days}</p>
+          <p className="flex justify-center text-xl maintext">DAYS</p>
+        </div>
+        <div className="flex items-center text-4xl font-bold mx-1">:</div>
+
+        <div className="flex flex-col">
+          <p className="flex justify-center text-6xl maintext">{hours}</p>
+          <p className="flex justify-center text-xl maintext">Hours</p>
+        </div>
+        <div className="flex items-center text-4xl font-bold mx-1">:</div>
+
+        <div className="flex flex-col">
+          <p className="flex justify-center text-6xl maintext">{minutes}</p>
+          <p className="flex justify-center text-xl maintext">Minutes</p>
+        </div>
+        <div className="flex items-center text-4xl font-bold mx-1">:</div>
+
+        <div className="flex flex-col">
+          <p className="flex justify-center text-6xl maintext">{seconds}</p>
+          <p className="flex justify-center text-xl maintext">Seconds</p>
+        </div>
+      </div>
+    );
   };
 
   // Function to determine font size based on screen size
@@ -57,21 +82,17 @@ const Timer = ({ targetDate, className }) => {
 
   return (
     <div
-      className={`h-auto ${className} text-slate-300 flex timer mb-4`}
+      className={` text-slate-300`}
       style={{ flexDirection }}
     >
       <h1
-        className="mr-2 text-purple-500 font-bold"
-        style={{ fontSize: getFontSize() }}
+        className="text-purple-500 font-bold text-4xl maintext"
       >
-        Event Starts In:
+        TIME LEFT
       </h1>
-      <h1
-        className="text-purple-500 font-normal"
-        style={{ fontSize: getFontSize() }}
-      >
+      
         {timeLeft > 0 ? getFormattedTime(timeLeft) : "The event has started!"}
-      </h1>
+     
     </div>
   );
 };

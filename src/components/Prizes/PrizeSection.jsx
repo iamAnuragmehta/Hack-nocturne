@@ -86,7 +86,7 @@ function PrizeSection() {
     <section id="prizes" className="rubik my-20">
       {/* Heading */}
       <div className="fade-animation text-center">
-        <GlitchText size={calculateFontSize()} heading="Prizes" />
+      <div className="text-white uppercase maintext text-8xl">Prizes</div>
       </div>
 
       {/* 🥈🏆🥉 */}

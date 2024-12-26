@@ -56,7 +56,7 @@ function SponsorSection() {
       <div className="p-12">
         <div className="text-center">
           <div className="fade-animation text-center">
-            <GlitchText size={calculateFontSize()} heading="Our Sponsors" />
+          <div className="text-white uppercase maintext text-6xl">Sponsors</div>
           </div>
         </div>
 

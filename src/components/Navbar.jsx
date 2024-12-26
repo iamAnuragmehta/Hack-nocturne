@@ -63,35 +63,35 @@ const Navbar = () => {
       <div
         className={`menu-links flex-col md:flex-row md:flex gap-6 md:gap-8 md:items-end ${
           menuOpen ? "flex mt-72" : "hidden"
-        } absolute md:static w-full md:w-auto bg-black opacity-85 backdrop-blur-md md:bg-transparent p-4 md:p-0`}
+        } absolute md:static w-full md:w-auto bg-black opacity-85 md:bg-transparent p-4 md:p-0`}
       >
         <a
           href="#about"
           onClick={closeMenu}
           className="hover:border-b-2 border-purple-500"
         >
-          <GlitchText size={calculateFontSize()} heading="About" />
+          <div className="text-white uppercase maintext text-3xl">About</div>
         </a>
         <a
           href="#prizes"
           onClick={closeMenu}
           className="hover:border-b-2 border-purple-500"
         >
-          <GlitchText size={calculateFontSize()} heading="prizes" />
+          <div className="text-white uppercase maintext text-3xl">Prizes</div>
         </a>
         <a
           href="#timeline"
           onClick={closeMenu}
           className="hover:border-b-2 border-purple-500"
         >
-          <GlitchText size={calculateFontSize()} heading="timeline" />
+          <div className="text-white uppercase maintext text-3xl">Timeline</div>
         </a>
         <a
           href="#faq's"
           onClick={closeMenu}
           className="hover:border-b-2 border-purple-500"
         >
-          <GlitchText size={calculateFontSize()} heading="faq's" />
+          <div className="text-white uppercase maintext text-3xl">Faq's</div>
         </a>
       </div>
     </nav>

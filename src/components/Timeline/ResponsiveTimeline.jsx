@@ -29,7 +29,7 @@ const ResponsiveTimeline = () => {
     <>
       <section id="timeline" className="flex flex-col text-white">
       <div className="fade-animation text-center">
-        <GlitchText size={calculateFontSize()} heading="Timeline" />
+      <div className="text-white uppercase maintext text-8xl">Timeline</div>
       </div>
         {isMobile ? <Mobiletimeline /> : <TimelineSection />}
       </section>
