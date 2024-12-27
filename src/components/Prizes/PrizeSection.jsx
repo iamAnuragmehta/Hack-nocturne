@@ -101,7 +101,7 @@ function PrizeSection() {
               icon={"🥈"}
               place={"2nd Prize"}
               cash={"₹10,000"}
-              credits={"+ 30,000"}
+              credits={"OpenAI credits"}
               medal={"Silver"}
               iconbackground={"bg-[#FF530A1A]"}
               theme={"bg-gray-600"}
@@ -112,7 +112,7 @@ function PrizeSection() {
               icon={"🥈"}
               place={"2nd Prize"}
               cash={"₹10,000"}
-              credits={"+ 30,000"}
+              credits={"OpenAI credits"}
               medal={"Silver"}
               iconbackground={"bg-[#FF530A1A]"}
               theme={"bg-gray-600"}
@@ -131,7 +131,7 @@ function PrizeSection() {
               icon={"🏆"}
               place={"1st Prize"}
               cash={"₹15,000"}
-              credits={"+ 50,000"}
+              credits={"OpenAI credits"}
               medal={"Gold"}
               iconbackground={"bg-[#2C1E36]"}
               theme={"bg-yellow-600"}
@@ -142,7 +142,7 @@ function PrizeSection() {
               icon={"🏆"}
               place={"1st Prize"}
               cash={"₹15,000"}
-              credits={"+ 50,000"}
+              credits={"OpenAI credits"}
               medal={"Gold"}
               iconbackground={"bg-[#2C1E36]"}
               theme={"bg-yellow-600"}
@@ -158,7 +158,7 @@ function PrizeSection() {
               icon={"🥉"}
               place={"3rd Prize"}
               cash={"₹5,000"}
-              credits={"+ 10,000"}
+              credits={"OpenAI credits"}
               medal={"Bronze"}
               iconbackground={"bg-[#FF530A1A]"}
               theme={"bg-yellow-900"}
@@ -169,7 +169,7 @@ function PrizeSection() {
               icon={"🥉"}
               place={"3rd Prize"}
               cash={"₹5,000"}
-              credits={"+ 10,000"}
+              credits={"OpenAI credits"}
               medal={"Bronze"}
               iconbackground={"bg-[#FF530A1A]"}
               theme={"bg-yellow-900"}
@@ -234,7 +234,6 @@ const PrizeCard = ({
       <p className="text-3xl sm:text-3xl font-bold mb-6 text-white">{cash}</p>
       <p className="text-xl sm:text-xl mb-6 text-white">
         {credits}
-        <br /> OpenAI credits
       </p>
       <div className="mt-4 text-center">
         <span
@@ -279,7 +278,6 @@ const MobileCard = ({
       <div className="flex flex-col">
         <p className="text-lg sm:text-xl md:mb-6 text-white">
           {credits}
-          <br /> OpenAI credits
         </p>
         <div className="mt-4 text-center">
           <span

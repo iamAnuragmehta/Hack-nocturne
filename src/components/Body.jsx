@@ -36,6 +36,8 @@ const Body = () => {
     },
   ];
 
+  
+
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -163,9 +165,12 @@ function DesktopBody() {
             targetDate="2025-02-22T00:00:00"
           />
           <div className="button flex  flex-col md:flex-row  gap-4 md:gap-10 items-center">
-            <button className="registerbutton rounded-xl bg-purple-500 p-2">
-              <div className="uppercase maintext text-2xl">Register Now</div>
-            </button>
+              <a href="https://hack-nocturne.devfolio.co/" target="_blank" >
+                <button className="registerbutton rounded-xl bg-purple-500 p-2">
+                  <div className="uppercase maintext text-2xl">Register Now</div>
+                </button>
+              </a>
+
             <button className="registerbutton rounded-xl bg-purple-500 p-2">
               <div className="uppercase maintext text-2xl">Brochure</div>
             </button>

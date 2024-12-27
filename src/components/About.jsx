@@ -27,42 +27,45 @@ const About = () => {
       {/* Text Section */}
       <div className="text-left text-xs md:text-lg text-white">
         <p className=" fade-animation">
-          HackNocturn is the flagship hackathon organized by CodeShack, bringing
-          together innovative minds to collaborate, create, and compete. This
-          24-hour coding marathon is a celebration of creativity and technology,
-          designed to challenge participants to push their limits in
-          problem-solving and software development. HackNocturn provides an
-          exciting platform for developers, designers, and tech enthusiasts to
-          showcase their skills across four cutting-edge domains:
+        HackNocturn is the flagship hackathon organized by CodeShack, bringing together the brightest minds to collaborate, create, and compete. This 24-hour coding marathon is a celebration of creativity and technology, offering participants the unique opportunity to solve real-world problems through software-based solutions.      
         </p>
 
         {/* List of domains */}
+        <h2 className="font-bold" > At HackNocturn, we focus on:</h2>
         <ul className="list-inside list-disc mt-4 space-y-2 md:space-y-3 fade-animation">
           <li className="ml-5">
-            <b className="text-purple-500">Web Development:</b> Build impactful
-            and user-friendly web solutions
+            <b className="text-purple-500">Fostering creativity:</b>  Mix and match different technologies to craft innovative solutions.
           </li>
           <li className="ml-5">
-            <b className="text-purple-500">App Development:</b> Craft mobile
-            applications that enhance daily life.
+            <b className="text-purple-500">
+            Real-world problem solving: </b> Work on challenges that matter and create impactful projects.
           </li>
           <li className="ml-5">
-            <b className="text-purple-500">Blockchain:</b> Innovate with secure,
-            decentralized technologies.
+            <b className="text-purple-500">Collaboration and mentorship: </b>          
+            Learn from industry experts and like-minded peers.
+  
           </li>
           <li className="ml-5">
-            <b className="text-purple-500">AI/ML:</b> Solve complex problems
-            with artificial intelligence and machine learning.
+            <b className="text-purple-500">Software-focused innovation:</b>  All solutions must be entirely software-based, ensuring a level playing field for all participants.
           </li>
         </ul>
-
+        <h2 className="font-bold" > Why participate in HackNocturn?</h2>
+        <ul className="list-inside list-disc mt-4 space-y-2 md:space-y-3 fade-animation">
+          <li className="ml-5">
+            <b className="text-purple-500">Turn your ideas into reality:</b>  Build impactful solutions from scratch.
+          </li>
+          <li className="ml-5">
+            <b className="text-purple-500">
+            Challenge yourself: </b> Push your limits in a competitive and time-bound environment.
+          </li>
+          <li className="ml-5">
+            <b className="text-purple-500">Connect with the community: </b>          
+            Network with tech enthusiasts, developers, and designers from diverse backgrounds.
+          </li>
+        </ul>
         {/* Closing Paragraph */}
         <p className="mt-4 fade-animation">
-          Whether you're a seasoned coder or a budding tech enthusiast,
-          HackNocturne offers a collaborative environment, expert mentorship,
-          and the thrill of competing against the best. Join us to turn your
-          ideas into reality, learn from like-minded peers, and leave your mark
-          in the tech world! Let the night of innovation begin with HackNocturn!
+        Get ready to utilize your skills, unleash your creativity, and experience the thrill of solving complex problems. HackNocturn is more than just a hackathon – it's a journey of innovation and discovery. Let the night of brilliance and breakthroughs begin with HackNocturn!
         </p>
       </div>
     </section>

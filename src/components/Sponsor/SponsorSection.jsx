@@ -7,7 +7,7 @@ import GlitchText from "../Glitch";
 import EthIndia from "./sponsors/ethindia.webp"
 import DevFolio from "./sponsors/devfolio-logo.44696a43.webp"
 import Concurrent from "./sponsors/Concurrent.svg"
-import Polygon from "./sponsors/Polygon_Blockchain_Matic_Logo.webp"
+import Polygon from "./sponsors/Polygon-01.webp"
 import "./SponorSection.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -15,7 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
 function SponsorSection() {
   const SponsorRef = useRef(null);
   const sponsors = [ EthIndia, DevFolio, Polygon, Concurrent];
-  const infiniteSponsors = [...sponsors, ...sponsors];
+  const infiniteSponsors = [...sponsors, ...sponsors ] ;
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
