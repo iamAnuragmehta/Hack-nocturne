@@ -3,19 +3,18 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import GlitchText from "../Glitch";
 
-import google from "./sponsors/google_logo.png";
-import react from "./sponsors/react_logo.png";
-import canva from "./sponsors/canva_logo.png";
-import discord from "./sponsors/discord_logo.png";
-import GSAP from "./sponsors/GSAP.svg";
 
+import EthIndia from "./sponsors/ethindia.webp"
+import DevFolio from "./sponsors/devfolio-logo.44696a43.webp"
+import Concurrent from "./sponsors/Concurrent.svg"
+import Polygon from "./sponsors/Polygon_Blockchain_Matic_Logo.webp"
 import "./SponorSection.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function SponsorSection() {
   const SponsorRef = useRef(null);
-  const sponsors = [react, google, canva, discord, GSAP];
+  const sponsors = [ EthIndia, DevFolio, Polygon, Concurrent];
   const infiniteSponsors = [...sponsors, ...sponsors];
 
   useLayoutEffect(() => {
@@ -56,7 +55,7 @@ function SponsorSection() {
       <div className="p-12">
         <div className="text-center">
           <div className="fade-animation text-center">
-          <div className="text-white uppercase maintext text-6xl">Sponsors</div>
+            <GlitchText size={calculateFontSize()} heading="Our Sponsors" />
           </div>
         </div>
 
