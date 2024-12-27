@@ -167,12 +167,12 @@ function DesktopBody() {
           <div className="button flex  flex-col md:flex-row  gap-4 md:gap-10 items-center">
               <a href="https://hack-nocturne.devfolio.co/" target="_blank" >
                 <button className="registerbutton rounded-xl bg-purple-500 p-2">
-                  <div className="uppercase maintext text-2xl">Register Now</div>
+                  <div className=" maintext  text-2xl">Register Now</div>
                 </button>
               </a>
 
             <button className="registerbutton rounded-xl bg-purple-500 p-2">
-              <div className="uppercase maintext text-2xl">Brochure</div>
+              <div className=" maintext text-2xl">Brochure</div>
             </button>
           </div>
         </div>

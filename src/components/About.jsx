@@ -27,7 +27,7 @@ const About = () => {
       {/* Text Section */}
       <div className="text-left text-xs md:text-lg text-white">
         <p className=" fade-animation">
-        HackNocturn is the flagship hackathon organized by CodeShack, bringing together the brightest minds to collaborate, create, and compete. This 24-hour coding marathon is a celebration of creativity and technology, offering participants the unique opportunity to solve real-world problems through software-based solutions.      
+        HackNocturne is the flagship hackathon organized by CodeShack, bringing together the brightest minds to collaborate, create, and compete. This 24-hour coding marathon is a celebration of creativity and technology, offering participants the unique opportunity to solve real-world problems through software-based solutions.      
         </p>
 
         {/* List of domains */}
@@ -49,7 +49,7 @@ const About = () => {
             <b className="text-purple-500">Software-focused innovation:</b>  All solutions must be entirely software-based, ensuring a level playing field for all participants.
           </li>
         </ul>
-        <h2 className="font-bold" > Why participate in HackNocturn?</h2>
+        <h2 className="font-bold" > Why participate in HackNocturne?</h2>
         <ul className="list-inside list-disc mt-4 space-y-2 md:space-y-3 fade-animation">
           <li className="ml-5">
             <b className="text-purple-500">Turn your ideas into reality:</b>  Build impactful solutions from scratch.
@@ -65,7 +65,7 @@ const About = () => {
         </ul>
         {/* Closing Paragraph */}
         <p className="mt-4 fade-animation">
-        Get ready to utilize your skills, unleash your creativity, and experience the thrill of solving complex problems. HackNocturn is more than just a hackathon – it's a journey of innovation and discovery. Let the night of brilliance and breakthroughs begin with HackNocturn!
+        Get ready to utilize your skills, unleash your creativity, and experience the thrill of solving complex problems. HackNocturne is more than just a hackathon – it's a journey of innovation and discovery. Let the night of brilliance and breakthroughs begin with HackNocturne!
         </p>
       </div>
     </section>

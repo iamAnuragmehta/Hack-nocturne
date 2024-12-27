@@ -59,7 +59,7 @@ const SponsorSection = () => {
                     <img
                       alt={`Sponsor ${idx}`}
                       src={src}
-                      className="max-w-full"
+                      className="max-w-[80%]"
                     />
                   </div>
                 ))}

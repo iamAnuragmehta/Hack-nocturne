@@ -42,7 +42,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar backdrop-blur-sm text-white p-4 flex justify-between items-center fixed top-0 left-0 right-0 z-50">
+    <nav className="navbar backdrop-blur-md text-white p-4 flex justify-between items-center fixed top-0 left-0 right-0 z-50">
       {/* Logo */}
       <a to="/">
         <div className="logo font-bold">
