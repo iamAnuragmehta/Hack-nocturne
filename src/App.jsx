@@ -6,11 +6,12 @@ import Body from "./components/Body";
 import Preloader from "./components/Preloader";
 import About from "./components/About";
 import { PrizeSection } from "./components/Prizes/PrizeSection";
-import { SponsorSection } from "./components/Sponsor/SponsorSection";
+
 import { FaqSection } from "./components/Faq/FaqSection";
 import ResponsiveTimeline from "./components/Timeline/ResponsiveTimeline";
 import { Background } from "./components/background/background2";
 import { ContactSection } from "./components/ContactSection";
+import SponsorSection from "./components/Sponsor/SponsorSection";
 
 function App() {
   const [isPreloaderVisible, setIsPreloaderVisible] = useState(true);
@@ -35,7 +36,7 @@ function App() {
             <About />
             <PrizeSection />
             <ResponsiveTimeline />
-            <SponsorSection />
+            <SponsorSection/>
             <FaqSection />
             <ContactSection />
           </>
