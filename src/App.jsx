@@ -12,6 +12,7 @@ import ResponsiveTimeline from "./components/Timeline/ResponsiveTimeline";
 import { Background } from "./components/background/background2";
 import { ContactSection } from "./components/ContactSection";
 import SponsorSection from "./components/Sponsor/SponsorSection";
+import { ContactForm } from "./components/ContactForm";
 
 function App() {
   const [isPreloaderVisible, setIsPreloaderVisible] = useState(true);
@@ -36,8 +37,9 @@ function App() {
             <About />
             <PrizeSection />
             <ResponsiveTimeline />
-            <SponsorSection/>
+            <SponsorSection />
             <FaqSection />
+            <ContactForm />
             <ContactSection />
           </>
         )}

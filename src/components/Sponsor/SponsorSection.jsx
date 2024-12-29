@@ -1,84 +1,83 @@
 import React, { useState } from "react";
 import GlitchText from "../Glitch";
 
-import EthIndia from "./sponsors/ethindia.webp"
-import DevFolio from "./sponsors/devfolio-logo.44696a43.webp"
-import Concurrent from "./sponsors/Concurrent.svg"
-import Polygon from "./sponsors/Polygon-01.webp"
+import EthIndia from "./sponsors/ethindia.svg";
+import DevFolio from "./sponsors/devfolio.svg";
+import Concurrent from "./sponsors/Concurrent.svg";
+import Polygon from "./sponsors/polygon.svg";
 
 const SponsorSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // platinum, gold, silver, bronze
+  // [logo, altvalue, link]
+  const platinumSponsors = [];
+  const goldSponsors = [[Concurrent, "Concurrent", ""]];
+  const silverSponsors = [
+    [EthIndia, "EthIndia", "https://"],
+    [DevFolio, "DEVFOLIO LOGO", "https://devfolio.co"],
+    [Polygon, "Polygon", "https://polygon.technology"],
+  ];
+  const bronzeSponsors = [];
+
   const sponsors = [
-    [
-      EthIndia, DevFolio , Concurrent ,Polygon
-    ]
-    
+    platinumSponsors,
+    goldSponsors,
+    silverSponsors,
+    bronzeSponsors,
   ];
 
-  const handleSlideChange = (index) => {
-    setActiveIndex(index);
-  };
+  const tierTitles = ["Platinum", "Gold", "Silver", "Bronze"];
 
-  // Function to calculate font size based on screen size
-  const calculateFontSize = () => {
-    if (screenSize < 600) {
-      return "2rem"; // Small screen: font size 3rem
-    } else if (screenSize < 768) {
-      return "3rem"; // Medium screen: font size 4rem
-    } else {
-      return "4rem"; // Large screen: font size 7rem
-    }
+  const getGridCols = (sponsorCount) => {
+    if (sponsorCount === 1) return "grid-cols-1";
+    if (sponsorCount === 2) return "grid-cols-1 sm:grid-cols-2";
+    if (sponsorCount === 3) return "grid-cols-1 sm:grid-cols-2 md:grid-cols-3";
+    return "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4";
   };
-  const screenSize = window.innerWidth;
 
   return (
     <div className="bg-transparent py-12">
       <div className="container mx-auto" id="id-sponsors">
         <div className="text-center">
           <div className="fade-animation text-center">
-            <GlitchText size={calculateFontSize()} heading="Our Sponsors" />
+            <div className="text-white uppercase maintext text-8xl">
+              Sponsors
+            </div>
           </div>
         </div>
-        <div className="relative m-3">
-          
-          {/* Slides */}
-          <div>
-            {sponsors.map((slide, index) => (
-              <div
-                key={index}
-                className={`${
-                  activeIndex === index ? "block" : "hidden"
-                } grid grid-cols-2 md:grid-cols-4 gap-4`}
-              >
-                {slide.map((src, idx) => (
-                  <div
-                    key={idx}
-                    className="sponsor-feature  p-5 rounded-lg flex items-center justify-center"
-                  >
-                    <img
-                      alt={`Sponsor ${idx}`}
-                      src={src}
-                      className="max-w-[80%]"
-                    />
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-          {/* Indicators */}
-          <div className="flex justify-center mb-5 mt-5">
-            {sponsors.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => handleSlideChange(index)}
-                className={`rounded-full w-3 h-3 mx-1 ${
-                  activeIndex === index ? "bg-white" : "bg-gray-400"
-                }`}
-              ></button>
-            ))}
-          </div>
 
+        <div className="space-y-12 mt-12">
+        {sponsors.map((tier, index) => (
+            tier.length > 0 && (
+              <div key={index} className="sponsor-tier">
+                <h3 className="text-white maintext text-xl md:text-2xl font-bold mb-8 text-center fade-animation">
+                  {tierTitles[index]}
+                </h3>
+                <div className="flex justify-center">
+                  <div className={`grid ${getGridCols(tier.length)} fade-animation gap-4 sm:gap-6 md:gap-8 w-full max-w-5xl`}>
+                    {tier.map(([logo, alt, link], idx) => (
+                      <div key={logo} className="flex justify-center">
+                        <a
+                          key={idx}
+                          href={link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="sponsor-featur bg-white p-4 sm:p-6 rounded-lg flex items-center justify-center hover:scale-105 transition-all duration-300 w-full max-w-xs"
+                        >
+                          <img
+                            src={logo}
+                            alt={alt}
+                            className="max-w-[80%] max-h-20 md:max-h-24 object-contain"
+                          />
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )
+          ))}
         </div>
       </div>
     </div>
@@ -91,7 +90,6 @@ export default SponsorSection;
 // import { gsap } from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import GlitchText from "../Glitch";
-
 
 // import "./SponorSection.css";
 
