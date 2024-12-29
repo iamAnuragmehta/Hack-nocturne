@@ -5,7 +5,8 @@ import {
   faTwitter,
   faInstagram,
   faLinkedin,
-  faGithub,
+  faTelegram,
+  faDiscord,
 } from "@fortawesome/free-brands-svg-icons";
 import location from "../assest/location.jpg";
 import "./contact.css";
@@ -44,10 +45,11 @@ function ContactSection() {
   }, []);
 
   const socialLinks = [
-    { icon: faTwitter, url: "https://github.com/glugmvit" },
-    { icon: faInstagram, url: "https://www.instagram.com/glugmvit" },
-    { icon: faLinkedin, url: "https://in.linkedin.com/company/glugmvit" },
-    { icon: faGithub, url: "https://github.com/glugmvit" },
+    { icon: faTwitter, url: "https://x.com/_techhub" },
+    { icon: faTelegram, url: "https://t.me/codeshack" },
+    { icon: faLinkedin, url: "https://www.linkedin.com/company/techhub-community/" },
+    { icon: faDiscord, url: "https://discord.com/invite/xbxFZhJQt9" },
+    { icon: faInstagram, url: "https://www.instagram.com/techhub_community/" },
   ];
 
   return (

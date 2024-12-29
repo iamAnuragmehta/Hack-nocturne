@@ -1,73 +1,72 @@
-import React, { FormEvent, useState } from 'react';
+import React, { useState } from "react";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    first_name: '',
-    last_name: '',
-    email: '',
-    phone: '',
-    message: ''
+    first_name: "",
+    last_name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState("");
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus('Please wait...');
+    setStatus("Please wait...");
 
     try {
       // Parallel submissions
       const [response1, response2] = await Promise.all([
-        fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
+            "Content-Type": "application/json",
+            Accept: "application/json",
           },
           body: JSON.stringify({
             ...formData,
-            access_key: '5941483f-3ca3-4b88-9bf0-fd43644e8d24',
-            subject: 'New Submission from Web3Forms - Primary'
-          })
+            access_key: "5941483f-3ca3-4b88-9bf0-fd43644e8d24",
+            subject: "New Submission from Web3Forms - Primary",
+          }),
         }),
-        fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
+            "Content-Type": "application/json",
+            Accept: "application/json",
           },
           body: JSON.stringify({
             ...formData,
-            access_key: '85d739bf-a1bf-4d42-a002-9dbb0c97844f',
-            subject: 'New Submission from Web3Forms - Tertiary'
-          })
-        })
+            access_key: "85d739bf-a1bf-4d42-a002-9dbb0c97844f",
+            subject: "New Submission from Web3Forms - Tertiary",
+          }),
+        }),
       ]);
 
       const json1 = await response1.json();
       const json2 = await response2.json();
 
-      // Check if both submissions were successful
       if (response1.status === 200 && response2.status === 200) {
-        setStatus('Message sent successfully! 😊');
+        setStatus("Message sent successfully! 😊");
         setFormData({
-          first_name: '',
-          last_name: '',
-          email: '',
-          phone: '',
-          message: ''
+          first_name: "",
+          last_name: "",
+          email: "",
+          phone: "",
+          message: "",
         });
-        setTimeout(() => setStatus(''), 5000);
+        setTimeout(() => setStatus(""), 5000);
       }
     } catch (error) {
-      console.log('Submission error:', error);
-      setStatus('Something went wrong!');
+      console.error("Submission error:", error);
+      setStatus("Something went wrong!");
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
+  const handleChange = (e) => {
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -75,9 +74,7 @@ const ContactForm = () => {
     <div className="contact-form-container">
       <div className="contact-form-wrapper">
         <div className="form-header">
-            <div className="text-white uppercase maintext text-6xl">
-                CONTACT US
-            </div>
+          <h1>Contact Us</h1>
           <p>Fill up the form below to send us a message.</p>
         </div>
 
@@ -90,7 +87,7 @@ const ContactForm = () => {
                   type="text"
                   id="first_name"
                   name="first_name"
-                  placeholder="First Name"
+                  placeholder="John"
                   value={formData.first_name}
                   onChange={handleChange}
                   required
@@ -102,7 +99,7 @@ const ContactForm = () => {
                   type="text"
                   id="last_name"
                   name="last_name"
-                  placeholder="Last Name"
+                  placeholder="Doe"
                   value={formData.last_name}
                   onChange={handleChange}
                   required
@@ -117,7 +114,7 @@ const ContactForm = () => {
                   type="email"
                   id="email"
                   name="email"
-                  placeholder="example@gmail.com"
+                  placeholder="you@company.com"
                   value={formData.email}
                   onChange={handleChange}
                   required
@@ -129,7 +126,7 @@ const ContactForm = () => {
                   type="tel"
                   id="phone"
                   name="phone"
-                  placeholder="9876543210"
+                  placeholder="+1 (555) 1234-567"
                   value={formData.phone}
                   onChange={handleChange}
                   required
@@ -149,8 +146,9 @@ const ContactForm = () => {
                 required
               ></textarea>
             </div>
-
-            <button id='button' type="submit">Send Message</button>
+            <button id="button" type="submit">
+              Send Message
+            </button>
 
             {status && <p className="form-status">{status}</p>}
           </form>
@@ -160,4 +158,4 @@ const ContactForm = () => {
   );
 };
 
-export {ContactForm};
+export { ContactForm };

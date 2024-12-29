@@ -7,7 +7,7 @@ function FaqSection() {
   const faqs = [
     {
       question: "Who can participate?",
-      answer: "Any college student with a valid ID can participate.",
+      answer: "All undergrad students having valid College Id card are eligible to participate and cross-college teams are allowed (at least 2 participants of a team should be from one college)",
     },
     {
       question: "What's the team size?",
@@ -22,12 +22,20 @@ function FaqSection() {
       answer: "Registration can be completed online through our website.",
     },
     {
-      question: "What are the prizes?",
-      answer: "We offer exciting cash prizes and internship opportunities.",
+      question: "Will accommodation and food be provided?",
+      answer: "Yes, accommodation and food will be provided at the venue, it will be allotted once participant reaches the venue.",
     },
     {
       question: "When is the event?",
       answer: "The event will be held from 21 February 2025.",
+    },
+    {
+      question: "What should I bring once selected for the hackathon?",
+      answer: "Bring your valid College Id, your laptop, charger, blanket (if you want to take a nap), medicine (if any), etc.",
+    },
+    {
+      question: "Whom can I contact if I have further questions?",
+      answer: "Phone no: Owais +91 90088-28640, Saurabh +91 82907-10753 or Reach out to hacknocturne@gmail.com",
     },
   ];
   

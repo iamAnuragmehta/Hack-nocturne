@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 const DevfolioButton = () => {
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = "https://apply.devfolio.co/v2/sdk.js";
+    script.src = "https://hack-nocturne.devfolio.co/";
     script.async = true;
     script.defer = true;
     document.body.appendChild(script);

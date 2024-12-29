@@ -94,7 +94,7 @@ function PrizeSection() {
         {/* Silver */}
         <div
           id="second"
-          className="flex-1 w-full md:max-w-[30%] lg:max-w-[25%]"
+          className="flex-1 justify-center w-full md:max-w-[30%] lg:max-w-[25%]"
         >
           {isMobile ? (
             <MobileCard
@@ -124,7 +124,7 @@ function PrizeSection() {
         {/* Gold */}
         <div
           id="first"
-          className="flex-1 w-full md:max-w-[40%] lg:max-w-[30%] order-first md:order-none md:-mt-8"
+          className="flex-1 justify-center w-full md:max-w-[40%] lg:max-w-[30%] order-first md:order-none md:-mt-8"
         >
           {isMobile ? (
             <MobileCard
@@ -152,7 +152,7 @@ function PrizeSection() {
         </div>
 
         {/* Bronze */}
-        <div id="third" className="flex-1 w-full md:max-w-[30%] lg:max-w-[25%]">
+        <div id="third" className="flex-1 justify-center w-full md:max-w-[30%] lg:max-w-[25%]">
           {isMobile ? (
             <MobileCard
               icon={"🥉"}
@@ -258,9 +258,9 @@ const MobileCard = ({
 }) => {
   return (
     <div
-      className={`clear-glass flex flex-col rounded-xl p-8 text-center ${border} fade-animation`}
+      className={`clear-glass flex flex-col rounded-xl p-8 text-center w-72 ${border} fade-animation`}
     >
-      <div className="flex flex-row w-full">
+      <div className="flex flex-row justify-center w-full">
         <div
           className={`flex px-auto text-5xl w-20 h-20 items-center justify-center rounded-full ${iconbackground} text-primary`}
         >
