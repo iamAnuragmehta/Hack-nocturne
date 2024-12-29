@@ -12,9 +12,9 @@ const SponsorSection = () => {
   // platinum, gold, silver, bronze
   // [logo, altvalue, link]
   const platinumSponsors = [];
-  const goldSponsors = [[Concurrent, "Concurrent", ""]];
+  const goldSponsors = [[Concurrent, "Concurrent", "https://concurrence.ai/"]];
   const silverSponsors = [
-    [EthIndia, "EthIndia", "https://"],
+    [EthIndia, "EthIndia", "https://ethindia2024.devfolio.co/"],
     [DevFolio, "DEVFOLIO LOGO", "https://devfolio.co"],
     [Polygon, "Polygon", "https://polygon.technology"],
   ];
