@@ -177,9 +177,9 @@ function DesktopBody() {
           <div className="button flex  flex-col md:flex-row  gap-4 md:gap-10 items-center">
             <DevfolioButton />
 
-            <button className="registerbutton rounded-xl bg-purple-500 p-2">
+            {/* <button className="registerbutton rounded-xl bg-purple-500 p-2">
               <div className=" maintext text-2xl">Brochure</div>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
