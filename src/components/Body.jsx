@@ -21,6 +21,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import "../components/contact.css";
 import MobileBody from "./MobileBody";
+import DevfolioButton from "./DevfolioButton";
 
 const Body = () => {
   const [screenSize, setScreenSize] = useState(window.innerWidth);
@@ -36,7 +37,16 @@ const Body = () => {
     },
   ];
 
-  
+  useEffect(() =>{
+    const script = document.createElement('script');
+    script.src = 'https://apply.devfolio.co/v2/sdk.js'
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    }
+}, []);
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -165,11 +175,7 @@ function DesktopBody() {
             targetDate="2025-02-22T00:00:00"
           />
           <div className="button flex  flex-col md:flex-row  gap-4 md:gap-10 items-center">
-              <a href="https://hack-nocturne.devfolio.co/" target="_blank" >
-                <button className="registerbutton rounded-xl bg-purple-500 p-2">
-                  <div className=" maintext  text-2xl">Register Now</div>
-                </button>
-              </a>
+              <DevfolioButton/>
 
             <button className="registerbutton rounded-xl bg-purple-500 p-2">
               <div className=" maintext text-2xl">Brochure</div>
