@@ -61,9 +61,9 @@ const Body = () => {
           {/* Buttons and Timer */}
           <div className="flex flex-col justify-start">
             <Timer className="m-10" targetDate="2025-02-22T00:00:00" />
-            <div className="button flex flex-row gap-4 justify-center my-4">
+            <div className="button flex flex-col gap-4 justify-center my-4">
               <DevfolioButton />
-              <button className="rounded-xl bg-purple-500 p-2">
+              <button className="rounded-md bg-blue-600 p-2">
                 <div className="uppercase maintext text-2xl">Brochure</div>
               </button>
             </div>
