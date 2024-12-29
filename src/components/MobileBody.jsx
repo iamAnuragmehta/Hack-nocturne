@@ -6,10 +6,11 @@ import Timer from "./Timer";
 import "../index.css";
 import "../CSS files/Body.css";
 import { useState } from "react";
+import DevfolioButton from "./DevfolioButton";
 
 const Body = () => {
   const [screenSize, setScreenSize] = useState(window.innerWidth);
-  
+
   return (
     <section className="flex flex-col justify-between">
       <div className="flex-grow flex flex-col items-center justify-between ">
@@ -61,9 +62,7 @@ const Body = () => {
           <div className="flex flex-col justify-start">
             <Timer className="m-10" targetDate="2025-02-22T00:00:00" />
             <div className="button flex flex-row gap-4 justify-center my-4">
-              <button className="rounded-xl bg-purple-500 p-2">
-                <div className="uppercase maintext text-2xl">Register Now</div>
-              </button>
+              <DevfolioButton />
               <button className="rounded-xl bg-purple-500 p-2">
                 <div className="uppercase maintext text-2xl">Brochure</div>
               </button>
