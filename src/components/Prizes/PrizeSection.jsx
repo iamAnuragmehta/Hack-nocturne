@@ -94,7 +94,7 @@ function PrizeSection() {
         {/* Silver */}
         <div
           id="second"
-          className="flex-1 justify-center w-full md:max-w-[30%] lg:max-w-[25%]"
+          className={`${isMobile?'flex':'flex-1'} justify-center w-full md:max-w-[30%] lg:max-w-[25%]`}
         >
           {isMobile ? (
             <MobileCard
@@ -124,7 +124,7 @@ function PrizeSection() {
         {/* Gold */}
         <div
           id="first"
-          className="flex-1 justify-center w-full md:max-w-[40%] lg:max-w-[30%] order-first md:order-none md:-mt-8"
+          className={`${isMobile?'flex':'flex-1'} justify-center w-full md:max-w-[40%] lg:max-w-[30%] order-first md:order-none md:-mt-8`}
         >
           {isMobile ? (
             <MobileCard
@@ -152,7 +152,7 @@ function PrizeSection() {
         </div>
 
         {/* Bronze */}
-        <div id="third" className="flex-1 justify-center w-full md:max-w-[30%] lg:max-w-[25%]">
+        <div id="third" className={`${isMobile?'flex':'flex-1'} justify-center w-full md:max-w-[30%] lg:max-w-[25%]`}>
           {isMobile ? (
             <MobileCard
               icon={"🥉"}

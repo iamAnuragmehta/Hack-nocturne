@@ -25,7 +25,7 @@ const DevfolioButton = () => {
   }, []);
 
   return (
-    <div className="button-container">
+    <div className="button-container flex justify-center">
       <div
         className="apply-button"
         data-hackathon-slug="hack-nocturne"

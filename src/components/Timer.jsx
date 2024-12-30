@@ -68,16 +68,6 @@ const Timer = ({ targetDate, className }) => {
   };
 
   // Function to determine font size based on screen size
-  const getFontSize = () => {
-    if (screenSize < 600) {
-      return "1.5rem"; // Small size for mobile
-    } else if (screenSize < 1024) {
-      return "2rem"; // Medium size for tablets
-    } else {
-      return "2rem"; // Larger size for desktops
-    }
-  };
-
   const flexDirection = screenSize < 768 ? "column" : "row"; // Column for mobile, row for desktop
 
   return (
@@ -86,7 +76,7 @@ const Timer = ({ targetDate, className }) => {
       style={{ flexDirection }}
     >
       <h1
-        className="text-purple-500 font-bold text-4xl maintext"
+        className="text-purple-500 font-bold text-center md:text-left text-4xl maintext"
       >
         TIME LEFT
       </h1>
