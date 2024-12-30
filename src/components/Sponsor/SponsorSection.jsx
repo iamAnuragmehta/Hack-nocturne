@@ -55,7 +55,7 @@ const SponsorSection = () => {
                   {tierTitles[index]}
                 </h3>
                 <div className="flex justify-center">
-                  <div className={`grid ${getGridCols(tier.length)} fade-animation gap-4 sm:gap-6 md:gap-8 w-full max-w-5xl`}>
+                  <div className={`grid ${getGridCols(tier.length)} gap-4 sm:gap-6 md:gap-8 w-full max-w-5xl`}>
                     {tier.map(([logo, alt, link], idx) => (
                       <div key={logo} className="flex justify-center">
                         <a
@@ -63,7 +63,7 @@ const SponsorSection = () => {
                           href={link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="sponsor-featur bg-white p-4 sm:p-6 rounded-lg flex items-center justify-center hover:scale-105 transition-all duration-300 w-full max-w-xs"
+                          className=" fade-animation sponsor-featur bg-white p-4 sm:p-6 rounded-lg flex items-center justify-center hover:scale-105 transition-all duration-300 w-full max-w-xs"
                         >
                           <img
                             src={logo}
